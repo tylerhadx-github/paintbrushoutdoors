@@ -1,2 +1,2 @@
-# paintbrushoutdoors
+# paintbrush outdoors
 More coming soon
