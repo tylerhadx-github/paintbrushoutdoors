@@ -80,10 +80,12 @@
             <v-icon icon="mdi-earth"></v-icon>
             <v-card-title>Static Web Site Development</v-card-title>
             <v-card-text>
+              <ul class="text-left ml-2">
               <li>PWA</li>
               <li>SPA</li>
               <li>Free Hosting</li>
               <li>Bring Your Own Custom Domain</li>
+              </ul> 
             </v-card-text>
           </v-card>
         </v-col>
