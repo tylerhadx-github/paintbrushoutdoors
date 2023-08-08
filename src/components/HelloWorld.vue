@@ -11,59 +11,81 @@
 
       <v-row class="d-flex align-center justify-center">
         <v-col cols="auto">
-          <!-- <v-btn
-            href="https://vuetifyjs.com/components/all/"
-            min-width="164"
-            rel="noopener noreferrer"
-            target="_blank"
-            variant="text"
-          >
-            <v-icon
-              icon="mdi-view-dashboard"
-              size="large"
-              start
-            />
+          <v-card>
+            <i class="fa-brands fa-shopify fa-xl"></i>
+            <v-card-title>Shopify Partner</v-card-title>
+            <v-card-text>
 
-            Components
-          </v-btn> -->
+              <ul class="text-left ml-2">
+                <li>Custom Apps</li>
+                <li>Theme Customization</li>
+                <li>New Store Setup</li>
+              </ul>
+            </v-card-text>
+          </v-card>
         </v-col>
 
         <v-col cols="auto">
-          <v-btn
-            color="primary"
-            href="https://vuetifyjs.com/introduction/why-vuetify/#feature-guides"
-            min-width="228"
-            rel="noopener noreferrer"
-            size="x-large"
-            target="_blank"
-            variant="flat"
+          <v-card color="primary">
+            <v-icon icon="mdi-play" size="large" start />
+            <v-card-title>
+              Mobile Development
+            </v-card-title>
+            <v-card-text>
+              <ul class="text-left ml-2">
+                <li>Push Notifications</li>
+                <li>Cross Platform</li>
+              </ul>
+            </v-card-text>
+          </v-card>
+        </v-col>
+
+        <v-col cols="auto">
+          <v-card
           >
             <v-icon
               icon="mdi-speedometer"
               size="large"
               start
             />
-
-            Start Hunting
-          </v-btn>
+              <v-card-title>
+                Custom Web Development
+              </v-card-title>
+              <v-card-text>
+                <ul class="text-left ml-2">
+                <li>PWA</li>
+                <li>SPA</li>
+                <li>Cloud Hosted</li>
+              </ul>
+              </v-card-text>
+          </v-card>
         </v-col>
-
+      </v-row>
+      <v-row class="d-flex align-center justify-center">
         <v-col cols="auto">
-          <!-- <v-btn
-            href="https://community.vuetifyjs.com/"
-            min-width="164"
-            rel="noopener noreferrer"
-            target="_blank"
-            variant="text"
-          >
-            <v-icon
-              icon="mdi-account-group"
-              size="large"
-              start
-            />
-
-            Community
-          </v-btn> -->
+          <v-card>
+            <v-icon icon="mdi-earth"></v-icon>
+            <v-card-title>Geographic Information System (GIS)</v-card-title>
+            <v-card-text>
+              <ul class="text-left ml-2">
+                <li>Google Maps</li>
+                <li>Mapbox</li>
+                <li>Esri</li>
+              </ul>
+            </v-card-text>
+          </v-card>
+        </v-col>
+        <v-col cols="auto">
+          <v-card>
+            <v-icon icon="mdi-earth"></v-icon>
+            <v-card-title>Static Web Site Development</v-card-title>
+            <v-card-text>
+              <li>PWA</li>
+              <li>SPA</li>
+              <li>Free Hosting</li>
+              <li>Bring Your Own Custom Domain</li>
+            </v-card-text>
+          </v-card>
         </v-col>
       </v-row>
     </v-responsive>
