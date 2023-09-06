@@ -16,6 +16,16 @@ const routes = [
       },
     ],
   },
+  {
+    path:'/store',
+    name:'Store',
+    component:() => import('@/components/StoreFront.vue'),
+  },
+  {
+    path:'/Product/:name',
+    name:'Product',
+    component:() => import('@/components/ProductDescription.vue'),
+  },
 ]
 
 const router = createRouter({

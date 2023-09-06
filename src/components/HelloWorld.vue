@@ -75,9 +75,10 @@
             </v-card-text>
           </v-card>
         </v-col>
+        
         <v-col cols="auto">
           <v-card>
-            <v-icon icon="mdi-earth"></v-icon>
+            <v-icon icon="mdi-sitemap"></v-icon>
             <v-card-title>Static Web Site Development</v-card-title>
             <v-card-text>
               <ul class="text-left ml-2">
@@ -86,6 +87,30 @@
               <li>Free Hosting</li>
               <li>Bring Your Own Custom Domain</li>
               </ul> 
+            </v-card-text>
+          </v-card>
+        </v-col>
+
+        <v-col cols="auto">
+          <v-card>
+            <v-icon icon="mdi-earth"></v-icon>
+            <v-card-title>3D Printing</v-card-title>
+            <v-card-text>
+              <ul class="text-left ml-2">
+              <li>PLA</li>
+              <li>PETG</li>
+              </ul> 
+            </v-card-text>
+          </v-card>
+        </v-col>
+      </v-row>
+
+      <v-row class="d-flex align-center justify-center">
+        <v-col cols="auto">
+          <v-card>
+            <i class="fa-brands fa-searchengin"></i>
+                        <v-card-title>SEO</v-card-title>
+            <v-card-text>
             </v-card-text>
           </v-card>
         </v-col>
