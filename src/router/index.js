@@ -17,6 +17,11 @@ const routes = [
     ],
   },
   {
+    path: '/paintbrushoutdoors/',
+    name: 'Home',
+    component: () => import(/* webpackChunkName: "home" */ '@/views/Home.vue'),
+  },
+  {
     path:'/store',
     name:'Store',
     component:() => import('@/components/StoreFront.vue'),
