@@ -17,7 +17,7 @@ const routes = [
     ],
   },
   {
-    path: '/paintbrushoutdoors/',
+    path: '/',
     name: 'Home',
     component: () => import(/* webpackChunkName: "home" */ '@/views/Home.vue'),
   },
