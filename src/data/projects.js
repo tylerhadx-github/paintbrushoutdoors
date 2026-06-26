@@ -61,7 +61,7 @@ export const projects = [
   {
     id: 'fishsd',
     name: 'SD Fish AI',
-    tagline: 'An AI fishing partner that actually knows your water.',
+    tagline: 'Scout your water ahead of time - an AI fishing partner that actually knows it.',
     cta: 'Meet the AI',
     category: 'AI Product',
     status: 'Live',
@@ -74,7 +74,7 @@ export const projects = [
     },
     images: ['fishsd.png', 'fishsd-map.png'],
     summary:
-      'A conversational fishing research assistant for South Dakota waters. Anglers chat with an AI grounded in real lake and species data, save their research, and compare bodies of water side by side behind a free account.',
+      'A conversational fishing research assistant for scouting South Dakota waters before you ever leave the house. Anglers chat with an AI grounded in real lake and species data, save their research, and compare bodies of water side by side behind a free account - so they know where to go before the trip.',
     highlights: [
       'Natural-language chat grounded in regional fishing and water data instead of generic answers.',
       'Saved research so anglers build a personal knowledge base over time.',
@@ -91,7 +91,7 @@ export const projects = [
   {
     id: 'sdhunt',
     name: 'SD Hunt AI',
-    tagline: 'Draw odds, unit rankings, and a personalized hunt strategy.',
+    tagline: 'Scout your hunt before the season - draw odds, unit rankings, and a personalized strategy.',
     cta: 'Plan a hunt',
     category: 'AI Product',
     status: 'Live',
@@ -104,7 +104,7 @@ export const projects = [
     },
     images: ['sdhunt.png', 'sdhunt-map.png'],
     summary:
-      'A hunt-planning platform that turns years of draw data and unit information into rankings, draw statistics, and an AI-built strategy tailored to each hunter\'s goals.',
+      'A pre-season hunt-research platform for scouting before you apply or head out. It turns years of draw data and unit information into rankings, draw statistics, and an AI-built strategy tailored to each hunter\'s goals.',
     highlights: [
       'Unit rankings that distill messy regulation and harvest data into a clear shortlist.',
       'Draw-odds statistics so hunters apply with realistic expectations.',
@@ -342,6 +342,37 @@ export const projects = [
       { label: 'Platform', value: 'Android' },
       { label: 'Focus', value: 'SD waters' },
       { label: 'On-water', value: 'Routes + points' },
+    ],
+  },
+  {
+    id: 'dakotatrophy',
+    name: 'Dakota Trophy Adventures',
+    tagline: 'A trophy outfitter\'s site that turns big-country hunts into booked adventures.',
+    cta: 'Book the hunt',
+    category: 'Marketing Site',
+    status: 'Live',
+    accent: '#6fae5a',
+    featured: false,
+    stack: ['Web design', 'Responsive site', 'Booking / lead funnel', 'SEO'],
+    tags: ['Marketing', 'Outdoors', 'Client work'],
+    links: {
+      live: 'https://dakotatrophyadventures.com/',
+    },
+    images: ['dakotatrophy.png'],
+    summary:
+      'A marketing site for a family-owned Western South Dakota hunting outfitter running trophy hunts across 140,000 acres since 1965. It leads with big trophy-country imagery and funnels visitors toward booking a guided hunt, with sections for the gallery, hunts offered, taxidermy, reviews, location, and the Trask Ranch.',
+    highlights: [
+      'Bold hero with trophy imagery and a clear "Book your adventure" call to action.',
+      'Trust-building "Why choose us" story - 60+ years, family-run, base camp, trophy quality.',
+      'Dedicated pages for hunts, gallery, taxidermy, reviews, location, and Trask Ranch.',
+      'Designed to turn browsing hunters into booked trips.',
+    ],
+    why:
+      'A great outfitter was leaning on word of mouth. We built a site that shows off the country and the trophies and makes booking a guided hunt the obvious next step.',
+    metrics: [
+      { label: 'Established', value: '1965' },
+      { label: 'Acreage', value: '140,000+' },
+      { label: 'Region', value: 'W. South Dakota' },
     ],
   },
 ]
