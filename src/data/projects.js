@@ -16,6 +16,8 @@
  *   stack     primary technologies
  *   tags      short capability chips
  *   links     { live?, github?, repos?: [{ label, url, private? }] }
+ *   images    screenshot filenames in src/assets/screenshots (first = card image)
+ *   logo      optional brand logo filename in src/assets/screenshots (mini card mark)
  *   summary   short paragraph for the detail view
  *   highlights[] impressive uses ("what it does that's hard")
  *   why       reasons for building it
@@ -37,6 +39,7 @@ export const projects = [
     links: {
       github: 'https://github.com/tylerhadx-github/PHA',
     },
+    images: ['pha.png', 'pha-mobile-maps.png', 'pha-mobile-offline.png', 'pha-mobile-ballistics.png'],
     summary:
       'A nationwide public-land hunting atlas built as a true cross-platform product: a .NET 8 Azure Functions backend continuously harvests 300+ government GIS feature-service layers across all 50 states, normalizes them, and serves them to a React Native mobile app that works in the field with no signal.',
     highlights: [
@@ -47,7 +50,7 @@ export const projects = [
       'One data backend powering both web and a native mobile experience.',
     ],
     why:
-      'Public-land boundary data is scattered across hundreds of inconsistent government servers and is useless without signal in the backcountry. I built PHA to unify all of it into one reliable, offline-first atlas so hunters always know exactly where they can legally hunt.',
+      'Public-land boundary data is scattered across hundreds of inconsistent government servers and is useless without signal in the backcountry. We built PHA to unify all of it into one reliable, offline-first atlas so hunters always know exactly where they can legally hunt.',
     metrics: [
       { label: 'Layers harvested', value: '303+' },
       { label: 'States covered', value: '50' },
@@ -68,6 +71,7 @@ export const projects = [
     links: {
       live: 'https://fish.paintbrushoutdoors.com/',
     },
+    images: ['fishsd.png', 'fishsd-map.png'],
     summary:
       'A conversational fishing research assistant for South Dakota waters. Anglers chat with an AI grounded in real lake and species data, save their research, and compare bodies of water side by side behind a free account.',
     highlights: [
@@ -77,7 +81,7 @@ export const projects = [
       'Free account system gating chat, history, and comparisons.',
     ],
     why:
-      'Fishing knowledge is locked in forums, PDFs, and local memory. I built SD Fish AI to turn that scattered information into a single assistant that answers "where and how should I fish this weekend?" in seconds.',
+      'Fishing knowledge is locked in forums, PDFs, and local memory. We built SD Fish AI to turn that scattered information into a single assistant that answers "where and how should I fish this weekend?" in seconds.',
     metrics: [
       { label: 'Focus', value: 'SD waters' },
       { label: 'Core', value: 'Chat + compare' },
@@ -97,6 +101,7 @@ export const projects = [
     links: {
       live: 'https://research.paintbrushoutdoors.com/',
     },
+    images: ['sdhunt.png', 'sdhunt-map.png'],
     summary:
       'A hunt-planning platform that turns years of draw data and unit information into rankings, draw statistics, and an AI-built strategy tailored to each hunter\'s goals.',
     highlights: [
@@ -106,7 +111,7 @@ export const projects = [
       'Account-gated tooling for saved strategies and rankings.',
     ],
     why:
-      'Western hunt planning is a research nightmare of spreadsheets and regulation PDFs. I built SD Hunt AI so a hunter can answer "where do I have the best odds and the best hunt?" without becoming a part-time statistician.',
+      'Western hunt planning is a research nightmare of spreadsheets and regulation PDFs. We built SD Hunt AI so a hunter can answer "where do I have the best odds and the best hunt?" without becoming a part-time statistician.',
     metrics: [
       { label: 'Outputs', value: 'Rankings + odds' },
       { label: 'Personalized', value: 'AI strategy' },
@@ -114,7 +119,7 @@ export const projects = [
   },
   {
     id: 'midwestgundealer',
-    name: 'Midwest Gun Dealer',
+    name: 'Midwest Gun Deals',
     tagline: 'A full marketplace, compliance engine, and ad platform in one app.',
     cta: 'Pull the trigger',
     category: 'Full-stack Marketplace',
@@ -124,8 +129,10 @@ export const projects = [
     stack: ['Vue 3', 'TypeScript', 'Vuetify', 'Vuex', 'Azure SWA', '.NET Functions'],
     tags: ['Marketplace', 'Full-stack', 'Compliance', 'Tested'],
     links: {
+      live: 'https://midwestgundeals.com/',
       github: 'https://github.com/tylerhadx-github/MidwestGunDealer',
     },
+    images: ['midwestgundealer.png'],
     summary:
       'A used-firearms marketplace with the depth of a real product: listings with images, distance-aware search and filtering, saved and reported listings, admin market research, an ad manager, user roles, notifications, and a legally-gated raffle ("Waffles") system. Backed by Azure Static Web Apps + .NET Functions and covered by Playwright and Vitest tests.',
     highlights: [
@@ -136,7 +143,7 @@ export const projects = [
       'Production hosting on Azure Static Web Apps with an integrated Functions API and auth.',
     ],
     why:
-      'Local firearms buying and selling happens on clunky forums with no trust, search, or legal guardrails. I built Midwest Gun Dealer to be a modern, compliant marketplace that treats regulation as a first-class feature instead of an afterthought.',
+      'Local firearms buying and selling happens on clunky forums with no trust, search, or legal guardrails. We built Midwest Gun Deals to be a modern, compliant marketplace that treats regulation as a first-class feature instead of an afterthought.',
     metrics: [
       { label: 'Surface', value: 'Marketplace + admin' },
       { label: 'Compliance', value: 'SD SOS gated' },
@@ -173,7 +180,7 @@ export const projects = [
       'Packaged as a buildable kit (Tinkercad / Thingiverse models) so the community can make their own.',
     ],
     why:
-      'When you are deep in the backcountry there is no signal, and existing off-grid radios are closed and expensive. I built the whole stack - board, firmware, and app - so a small group can text and share location anywhere, and so I could open-source it for other makers to build.',
+      'When you are deep in the backcountry there is no signal, and existing off-grid radios are closed and expensive. We built the whole stack - board, firmware, and app - so a small group can text and share location anywhere, and so we could open-source it for other makers to build.',
     metrics: [
       { label: 'Stack', value: 'PCB -> firmware -> app' },
       { label: 'Range', value: 'Off-grid LoRa' },
@@ -194,6 +201,8 @@ export const projects = [
     links: {
       live: 'https://titlexarchery.com/',
     },
+    images: ['titlex.png'],
+    logo: 'logo-titlex.png',
     summary:
       'A direct-to-consumer archery brand selling premium carbon arrows and accessories, from product line-up to storefront. Built and customized on Shopify with a focus on conversion and a strong, consistent brand voice.',
     highlights: [
@@ -203,7 +212,7 @@ export const projects = [
       '"Bowhunter built" brand identity carried consistently across the store.',
     ],
     why:
-      'I wanted to ship a real product business, not just software - sourcing premium arrows and building the brand and storefront that sells them. TitleX is proof I can take something from idea to revenue.',
+      'We wanted to ship a real product business, not just software - sourcing premium arrows and building the brand and storefront that sells them. TitleX is proof we can take something from idea to revenue.',
     metrics: [
       { label: 'Rating', value: '4.99 stars' },
       { label: 'Reviews', value: '105+' },
@@ -224,6 +233,8 @@ export const projects = [
     links: {
       live: 'https://nockscore.com/',
     },
+    images: ['nockscore.png'],
+    logo: 'logo-nockscore.png',
     summary:
       'A digital archery scorekeeping app designed to run as a kiosk, replacing paper scorecards for target and 3D shoots with fast, error-proof entry.',
     highlights: [
@@ -232,7 +243,7 @@ export const projects = [
       'Web-based, so any tablet or screen becomes a scoring station.',
     ],
     why:
-      'Paper scorecards are slow, error-prone, and a pain to tally. I built NockScore to make scoring an archery shoot as simple as tapping a screen.',
+      'Paper scorecards are slow, error-prone, and a pain to tally. We built NockScore to make scoring an archery shoot as simple as tapping a screen.',
     metrics: [
       { label: 'Mode', value: 'Kiosk' },
       { label: 'For', value: 'Target + 3D' },
@@ -252,6 +263,7 @@ export const projects = [
     links: {
       live: 'https://tylerhadx-github.github.io/BHMTNLION/',
     },
+    images: ['bhmtnlion.png'],
     summary:
       'An interactive map that visualizes South Dakota GFP mountain lion harvest data alongside terrain context - harvest locations, multi-year heatmaps, snow depth, mines, and caves - with onX export for the field.',
     highlights: [
@@ -261,7 +273,7 @@ export const projects = [
       'Cached data for fast, reliable loads on a static host.',
     ],
     why:
-      'Public harvest data exists but is locked in tables nobody reads. I built this to turn it into a map that actually helps plan a hunt and understand where lions move.',
+      'Public harvest data exists but is locked in tables nobody reads. We built this to turn it into a map that actually helps plan a hunt and understand where lions move.',
     metrics: [
       { label: 'Seasons', value: '2012-2017' },
       { label: 'Output', value: 'Heatmap + export' },
@@ -290,7 +302,7 @@ export const projects = [
       'Hosted free on GitHub Pages with a live demo.',
     ],
     why:
-      'Commercial wind meters are expensive for what they are. I built DIYKestrel to prove you can pair simple hardware with a clean web app and get the same data for far less - and share it openly.',
+      'Commercial wind meters are expensive for what they are. We built DIYKestrel to prove you can pair simple hardware with a clean web app and get the same data for far less - and share it openly.',
     metrics: [
       { label: 'Cost', value: 'DIY / low' },
       { label: 'License', value: 'Open source' },

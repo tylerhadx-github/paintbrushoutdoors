@@ -44,7 +44,7 @@ export const skills = [
   {
     id: 'hardware',
     title: 'Hardware & IoT',
-    blurb: 'Real devices: I design the board, write the firmware, and build the app.',
+    blurb: 'Real devices: we design the board, write the firmware, and build the app.',
     icon: 'mdi-chip',
     items: ['Custom PCB design', 'Embedded firmware', 'Wireless / LoRa radio', '3D-printed enclosures'],
   },
@@ -58,7 +58,7 @@ export const skills = [
   {
     id: 'ecommerce',
     title: 'E-commerce & Brand',
-    blurb: 'I build the product and the business that sells it.',
+    blurb: 'We build the product and the business that sells it.',
     icon: 'mdi-cart-outline',
     items: ['DTC storefronts', 'Conversion optimization', 'Brand & merchandising', 'Idea to revenue'],
   },

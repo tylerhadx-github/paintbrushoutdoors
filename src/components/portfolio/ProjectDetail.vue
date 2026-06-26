@@ -41,6 +41,18 @@
           </header>
 
           <div class="detail__body">
+            <div v-if="webShots.length" class="detail__gallery" :class="{ 'detail__gallery--single': webShots.length === 1 }">
+              <figure v-for="(img, i) in webShots" :key="img.name" class="shot">
+                <img :src="img.src" :alt="`${project.name} screenshot ${i + 1}`" loading="lazy" />
+              </figure>
+            </div>
+
+            <div v-if="mobileShots.length" class="detail__phones">
+              <figure v-for="img in mobileShots" :key="img.name" class="phone">
+                <img :src="img.src" :alt="`${project.name} mobile screenshot`" loading="lazy" />
+              </figure>
+            </div>
+
             <p class="detail__summary">{{ project.summary }}</p>
 
             <div v-if="project.metrics && project.metrics.length" class="detail__metrics">
@@ -62,7 +74,7 @@
 
               <aside class="block block--side">
                 <h3 class="block__title">
-                  <i class="mdi mdi-lightbulb-on-outline"></i> Why I built it
+                  <i class="mdi mdi-lightbulb-on-outline"></i> Why we built it
                 </h3>
                 <p class="block__why">{{ project.why }}</p>
 
@@ -101,12 +113,27 @@
 
 <script setup>
   import { computed, watch } from 'vue'
+  import { screenshot } from '@/data/screenshots'
 
   const props = defineProps({
     project: { type: Object, default: null },
   })
 
   const emit = defineEmits(['close'])
+
+  // Filenames containing "mobile" or "phone" render in a portrait phone frame.
+  const gallery = computed(() =>
+    (props.project?.images || [])
+      .map((name) => ({
+        name,
+        src: screenshot(name),
+        mobile: /mobile|phone/i.test(name),
+      }))
+      .filter((img) => img.src)
+  )
+
+  const webShots = computed(() => gallery.value.filter((i) => !i.mobile))
+  const mobileShots = computed(() => gallery.value.filter((i) => i.mobile))
 
   const statusClass = computed(() => {
     if (!props.project) return ''
@@ -277,11 +304,71 @@
     border-color: rgba(255, 180, 84, 0.4);
   }
 
+  .detail__gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.85rem;
+    margin: 0 0 1.75rem;
+  }
+
+  .detail__gallery--single {
+    grid-template-columns: 1fr;
+  }
+
+  .shot {
+    margin: 0;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: #0e0e15;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+  }
+
+  .shot img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+  }
+
+  .detail__phones {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: clamp(0.75rem, 2vw, 1.5rem);
+    margin: 0 0 2rem;
+  }
+
+  .phone {
+    margin: 0;
+    flex: 0 1 200px;
+    max-width: 220px;
+    border-radius: 26px;
+    overflow: hidden;
+    padding: 6px;
+    background: linear-gradient(160deg, #20202c, #0c0c12);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 18px 44px rgba(0, 0, 0, 0.5);
+  }
+
+  .phone img {
+    display: block;
+    width: 100%;
+    border-radius: 20px;
+  }
+
   .detail__summary {
     font-size: 1.1rem;
     line-height: 1.65;
     color: #d3d3dd;
     margin: 0 0 1.75rem;
+  }
+
+  @media (max-width: 560px) {
+    .detail__gallery {
+      grid-template-columns: 1fr;
+    }
   }
 
   .detail__metrics {

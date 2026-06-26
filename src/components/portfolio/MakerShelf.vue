@@ -21,7 +21,12 @@
           target="_blank"
           rel="noopener"
         >
-          <div class="model__top">
+          <div v-if="thumb(model)" class="model__media">
+            <img :src="thumb(model)" :alt="model.name" loading="lazy" />
+            <span class="model__platform model__platform--overlay">Printables</span>
+          </div>
+
+          <div class="model__top" :class="{ 'model__top--has-media': thumb(model) }">
             <span class="model__icon"><i class="mdi" :class="model.icon"></i></span>
             <span class="model__platform">Printables</span>
           </div>
@@ -49,7 +54,12 @@
 <script setup>
   import { computed, onMounted, ref } from 'vue'
   import { models } from '@/data/models'
+  import { screenshot } from '@/data/screenshots'
   import { useScrollReveal } from '@/composables/useScrollReveal'
+
+  function thumb (model) {
+    return screenshot(model.image)
+  }
 
   const root = ref(null)
   const head = ref(null)
@@ -142,11 +152,47 @@
     outline: none;
   }
 
+  .model__media {
+    position: relative;
+    margin: -1.5rem -1.5rem 1.1rem;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    border-radius: 20px 20px 0 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .model__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .model:hover .model__media img {
+    transform: scale(1.04);
+  }
+
+  .model__platform--overlay {
+    position: absolute;
+    top: 0.7rem;
+    right: 0.7rem;
+    padding: 0.25rem 0.6rem;
+    border-radius: 999px;
+    background: rgba(6, 6, 10, 0.6);
+    backdrop-filter: blur(6px);
+    color: #d3d3dd;
+  }
+
   .model__top {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 1.1rem;
+  }
+
+  .model__top--has-media .model__platform {
+    display: none;
   }
 
   .model__icon {

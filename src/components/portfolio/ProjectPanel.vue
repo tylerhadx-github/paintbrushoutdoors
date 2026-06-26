@@ -17,8 +17,17 @@
           <em class="frame__url">{{ displayUrl }}</em>
         </div>
         <div class="frame__screen">
-          <span class="frame__mark">{{ initials }}</span>
-          <span class="frame__glow"></span>
+          <img
+            v-if="cardImage"
+            :src="cardImage"
+            :alt="`${project.name} screenshot`"
+            class="frame__img"
+            loading="lazy"
+          />
+          <template v-else>
+            <span class="frame__mark">{{ initials }}</span>
+            <span class="frame__glow"></span>
+          </template>
         </div>
       </div>
     </div>
@@ -69,6 +78,7 @@
 
 <script setup>
   import { computed } from 'vue'
+  import { screenshot } from '@/data/screenshots'
 
   const props = defineProps({
     project: { type: Object, required: true },
@@ -76,6 +86,8 @@
   })
 
   defineEmits(['open'])
+
+  const cardImage = computed(() => screenshot(props.project.images?.[0]))
 
   const initials = computed(() =>
     props.project.name
@@ -181,6 +193,15 @@
       radial-gradient(circle at 50% 40%, color-mix(in srgb, var(--accent) 28%, transparent), transparent 60%),
       linear-gradient(160deg, #15151f, #0c0c12);
     overflow: hidden;
+  }
+
+  .frame__img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
   }
 
   .frame__mark {

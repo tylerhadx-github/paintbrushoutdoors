@@ -5,9 +5,9 @@
         <span class="skills__eyebrow">Capabilities</span>
         <h2 class="skills__title">Full-stack, end to end</h2>
         <p class="skills__subtitle">
-          Not a frontend dev who hands off the rest. I design the systems, write
+          Not a frontend shop that hands off the rest. We design the systems, write
           the APIs, ship the cloud, and - when it matters - build the device too.
-          I pick the right tools for each job; here's the ground I cover.
+          We pick the right tools for each job; here's the ground we cover.
         </p>
       </header>
 

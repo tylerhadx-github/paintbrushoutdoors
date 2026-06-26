@@ -8,18 +8,18 @@
 
     <div class="hero__inner">
       <p class="hero__eyebrow" ref="eyebrow">
-        <span class="hero__dot"></span> I ship real products, not portfolios
+        <span class="hero__dot"></span> We ship real products, not portfolios
       </p>
 
       <h1 class="hero__headline">
-        <span class="line"><span class="line__inner">I build and ship</span></span>
+        <span class="line"><span class="line__inner">We build and ship</span></span>
         <span class="line"><span class="line__inner">real <em>products</em>,</span></span>
         <span class="line"><span class="line__inner">not just demos.</span></span>
       </h1>
 
       <p class="hero__intro" ref="intro">
         From AI tools and full-stack marketplaces to GIS platforms and custom
-        hardware - I take ideas all the way to live apps and real businesses.
+        hardware - we take ideas all the way to live apps and real businesses.
       </p>
 
       <div class="hero__cta" ref="cta">
@@ -57,7 +57,7 @@
   const orb2 = ref(null)
 
   const projectHints = [
-    'Public Hunting Atlas', 'SD Fish AI', 'SD Hunt AI', 'Midwest Gun Dealer',
+    'Public Hunting Atlas', 'SD Fish AI', 'SD Hunt AI', 'Midwest Gun Deals',
     'LoRa Texting', 'TitleX Archery', 'NockScore', 'DIYKestrel',
   ]
 

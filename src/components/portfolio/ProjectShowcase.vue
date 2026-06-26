@@ -3,7 +3,7 @@
     <div class="showcase__inner">
       <header class="showcase__head" ref="head">
         <span class="showcase__eyebrow">Selected work</span>
-        <h2 class="showcase__title">Products I've shipped</h2>
+        <h2 class="showcase__title">Products we've shipped</h2>
         <p class="showcase__subtitle">
           A mix of live apps, full-stack platforms, hardware, and open-source kits.
           Tap any project to dig into the details.
@@ -31,8 +31,14 @@
             :style="{ '--accent': project.accent }"
             @click="open(project)"
           >
+            <div v-if="thumb(project)" class="mini__media">
+              <img :src="thumb(project)" :alt="`${project.name} screenshot`" loading="lazy" />
+            </div>
             <div class="mini__top">
-              <span class="mini__mark">{{ initials(project.name) }}</span>
+              <span class="mini__mark" :class="{ 'mini__mark--logo': logoMark(project) }">
+                <img v-if="logoMark(project)" :src="logoMark(project)" :alt="`${project.name} logo`" />
+                <template v-else>{{ initials(project.name) }}</template>
+              </span>
               <span class="mini__status">{{ project.status }}</span>
             </div>
             <h4 class="mini__name">{{ project.name }}</h4>
@@ -52,6 +58,7 @@
   import ProjectPanel from './ProjectPanel.vue'
   import ProjectDetail from './ProjectDetail.vue'
   import { projects } from '@/data/projects'
+  import { screenshot } from '@/data/screenshots'
   import { useScrollReveal } from '@/composables/useScrollReveal'
 
   const root = ref(null)
@@ -75,6 +82,14 @@
       .join('')
       .slice(0, 3)
       .toUpperCase()
+  }
+
+  function thumb (project) {
+    return screenshot(project.images?.[0])
+  }
+
+  function logoMark (project) {
+    return screenshot(project.logo)
   }
 
   onMounted(() => {
@@ -177,6 +192,22 @@
     outline: none;
   }
 
+  .mini__media {
+    margin: -1.5rem -1.5rem 1.25rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 20px 20px 0 0;
+  }
+
+  .mini__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+  }
+
   .mini__top {
     display: flex;
     align-items: center;
@@ -196,6 +227,18 @@
     color: color-mix(in srgb, var(--accent) 85%, #fff);
     background: color-mix(in srgb, var(--accent) 16%, transparent);
     border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+    overflow: hidden;
+  }
+
+  .mini__mark--logo {
+    background: #fff;
+    padding: 4px;
+  }
+
+  .mini__mark--logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
   }
 
   .mini__status {

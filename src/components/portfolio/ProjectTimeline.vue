@@ -3,7 +3,7 @@
     <div class="timeline__inner">
       <header class="timeline__head" ref="head">
         <span class="timeline__eyebrow">The throughline</span>
-        <h2 class="timeline__title">One builder, the whole stack</h2>
+        <h2 class="timeline__title">Engineered from the bottom of the lake to the top of the mountain</h2>
         <p class="timeline__subtitle">
           Every project below shares a pattern: take a real problem all the way
           from idea to a live product - frontend, backend, infrastructure, and

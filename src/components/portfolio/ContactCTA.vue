@@ -10,7 +10,7 @@
         Have a product that needs to <em>actually ship?</em>
       </h2>
       <p class="contact__lead">
-        I take on full-stack builds, hardware-meets-software projects, AI tools,
+        We take on full-stack builds, hardware-meets-software projects, AI tools,
         and the occasional business from scratch. If it needs to go from idea to
         live, let's talk.
       </p>
@@ -47,7 +47,7 @@
             id="cf-message"
             v-model.trim="form.message"
             rows="4"
-            placeholder="Tell me about your project, timeline, and what you need..."
+            placeholder="Tell us about your project, timeline, and what you need..."
             required
           ></textarea>
         </div>
@@ -65,7 +65,7 @@
       <div v-else class="contact__sent" role="status">
         <span class="contact__sent-icon"><i class="mdi mdi-check"></i></span>
         <h3>Thanks{{ form.name ? `, ${form.name}` : '' }}!</h3>
-        <p>Your message is ready to go. I'll be in touch soon.</p>
+        <p>Your message is ready to go. We'll be in touch soon.</p>
         <button class="btn btn--ghost" type="button" @click="reset">Send another</button>
       </div>
 
@@ -77,7 +77,7 @@
       >
         <span class="contact__youtube-icon"><i class="mdi mdi-youtube"></i></span>
         <span class="contact__youtube-text">
-          <strong>Catch the builds in the wild</strong>
+          <strong>Follow the hunts in the wild</strong>
           <span>Haddix Hunting on YouTube</span>
         </span>
         <i class="mdi mdi-arrow-top-right contact__youtube-arrow"></i>
