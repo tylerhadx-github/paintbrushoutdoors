@@ -290,7 +290,7 @@ export const projects = [
     stack: ['Vue', 'JavaScript', '3D-printed hardware', 'Sensors'],
     tags: ['IoT', 'Hardware', 'PWA'],
     links: {
-      live: 'https://tylerhadx-github.github.io/DIYKestrel/',
+      live: 'https://kestrel.paintbrushoutdoors.com/',
       github: 'https://github.com/tylerhadx-github/DIYKestrel',
     },
     summary:
