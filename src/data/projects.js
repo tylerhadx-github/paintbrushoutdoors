@@ -37,6 +37,7 @@ export const projects = [
     stack: ['.NET 8', 'Azure Functions', 'React Native', 'Cloudflare R2', 'ArcGIS / GeoJSON'],
     tags: ['GIS', 'Serverless', 'Mobile', 'Data pipeline'],
     links: {
+      live: 'https://pha.paintbrushoutdoors.com/',
       github: 'https://github.com/tylerhadx-github/PHA',
     },
     images: ['pha.png', 'pha-mobile-maps.png', 'pha-mobile-offline.png', 'pha-mobile-ballistics.png'],
@@ -169,6 +170,7 @@ export const projects = [
         { label: 'LoraBoardPCB (hardware)', url: 'https://github.com/tylerhadx-github/LoraText', private: true },
       ],
     },
+    images: ['loratext.png'],
     summary:
       'A complete off-grid texting system that spans the entire stack: a custom PCB, Arduino/C++ firmware driving a LoRa radio, and a Vue progressive web app that pairs over Web Bluetooth. Messages are encrypted with a pre-shared key, work with no cell service, and can share live location on a map. Designed to be open-sourced so anyone can build and run their own device.',
     highlights: [
@@ -293,6 +295,7 @@ export const projects = [
       live: 'https://kestrel.paintbrushoutdoors.com/',
       github: 'https://github.com/tylerhadx-github/DIYKestrel',
     },
+    images: ['diykestrel.png'],
     summary:
       'An open-source, DIY take on a handheld weather meter: a Vue app paired with 3D-printed hardware that brings Kestrel-style wind and weather readings to anyone willing to build it.',
     highlights: [
@@ -316,12 +319,14 @@ export const projects = [
     status: 'Live',
     accent: '#2dd4bf',
     featured: false,
+    logo: 'logo-fishsd.png',
     stack: ['Android', 'Offline data', 'GPS & route tracking', 'Mapping'],
     tags: ['Mobile', 'Fishing', 'Offline', 'GPS'],
     links: {
       live: 'https://play.google.com/store/apps/details?id=com.fishsd&hl=en_US',
       github: 'https://github.com/KryptoBeard/FishSD',
     },
+    images: ['fishsd-app-map.png', 'fishsd-app-species.png', 'fishsd-app-regs.png', 'fishsd-app-settings.png'],
     summary:
       'A published Android app for South Dakota anglers: tap any body of water to see its specific regulations and the species it holds, save and re-open fishing routes with automatic distance, track points like fish, boats, and markers, and read depth maps on major waters.',
     highlights: [
