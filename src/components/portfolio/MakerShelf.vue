@@ -47,6 +47,21 @@
           </div>
         </a>
       </div>
+
+      <a
+        class="maker__profile"
+        href="https://www.printables.com/@TylerHaddix_873695"
+        target="_blank"
+        rel="noopener"
+        ref="profile"
+      >
+        <span class="maker__profile-icon"><i class="mdi mdi-printer-3d-nozzle"></i></span>
+        <span class="maker__profile-text">
+          <strong>See every model on Printables</strong>
+          <span>Follow @TylerHaddix for new outdoor prints</span>
+        </span>
+        <i class="mdi mdi-arrow-top-right maker__profile-arrow"></i>
+      </a>
     </div>
   </section>
 </template>
@@ -64,6 +79,7 @@
   const root = ref(null)
   const head = ref(null)
   const grid = ref(null)
+  const profile = ref(null)
 
   const totalDownloads = computed(() =>
     models.reduce((sum, m) => sum + (m.downloads || 0), 0)
@@ -74,6 +90,7 @@
   onMounted(() => {
     revealOne(head.value, { y: 28 })
     revealStagger(grid.value, '.model', { y: 40, stagger: 0.09 })
+    if (profile.value) revealOne(profile.value, { y: 24 })
   })
 </script>
 
@@ -268,5 +285,58 @@
 
   .model:hover .model__open .mdi {
     transform: translate(3px, -3px);
+  }
+
+  .maker__profile {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: clamp(2rem, 5vw, 3rem);
+    padding: 0.85rem 1.5rem 0.85rem 0.9rem;
+    border-radius: 999px;
+    text-decoration: none;
+    text-align: left;
+    border: 1px solid rgba(124, 92, 255, 0.3);
+    background: rgba(124, 92, 255, 0.07);
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+  }
+
+  .maker__profile:hover {
+    transform: translateY(-3px);
+    border-color: rgba(124, 92, 255, 0.65);
+    background: rgba(124, 92, 255, 0.12);
+  }
+
+  .maker__profile-icon {
+    display: inline-grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    color: #fff;
+    background: linear-gradient(120deg, #7c5cff, #6344e6);
+    box-shadow: 0 8px 22px rgba(124, 92, 255, 0.4);
+  }
+
+  .maker__profile-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.3;
+  }
+
+  .maker__profile-text strong {
+    color: #f4f4f8;
+    font-size: 1rem;
+  }
+
+  .maker__profile-text span {
+    color: #b3b3c0;
+    font-size: 0.85rem;
+  }
+
+  .maker__profile-arrow {
+    color: #b89bff;
+    font-size: 1.2rem;
   }
 </style>

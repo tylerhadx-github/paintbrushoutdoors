@@ -130,7 +130,6 @@ export const projects = [
     tags: ['Marketplace', 'Full-stack', 'Compliance', 'Tested'],
     links: {
       live: 'https://midwestgundeals.com/',
-      github: 'https://github.com/tylerhadx-github/MidwestGunDealer',
     },
     images: ['midwestgundealer.png'],
     summary:
