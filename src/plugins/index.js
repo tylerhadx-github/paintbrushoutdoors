@@ -8,6 +8,7 @@
 import { loadFonts } from './webfontloader'
 import vuetify from './vuetify'
 import router from '../router'
+import './gsap'
 
 export function registerPlugins (app) {
   loadFonts()
