@@ -26,10 +26,14 @@
 
 <script setup>
 import { defineProps } from 'vue';
+import { useJsonLd } from '@/composables/useJsonLd';
+import { buildProduct } from '@/data/structuredData';
 
 const props = defineProps({
   name: String, // Defining the "name" prop as a string
 });
+
+useJsonLd(buildProduct(props.name), 'ld-product');
 
 const slides = [
   {src: '/src/assets/banner_BS.png'},

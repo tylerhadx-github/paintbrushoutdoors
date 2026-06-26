@@ -16,6 +16,10 @@
   import SkillStack from '@/components/portfolio/SkillStack.vue'
   import MakerShelf from '@/components/portfolio/MakerShelf.vue'
   import ContactCTA from '@/components/portfolio/ContactCTA.vue'
+  import { useJsonLd } from '@/composables/useJsonLd'
+  import { buildSiteGraph } from '@/data/structuredData'
+
+  useJsonLd(buildSiteGraph(), 'ld-site')
 </script>
 
 <style scoped>

@@ -25,5 +25,8 @@
 </template>
 
 <script setup>
-  //
+  import { useJsonLd } from '@/composables/useJsonLd'
+  import { buildStoreList } from '@/data/structuredData'
+
+  useJsonLd(buildStoreList(), 'ld-store')
 </script>

@@ -287,7 +287,7 @@ export const projects = [
     category: 'Hardware + IoT',
     status: 'Open source',
     accent: '#3ddc97',
-    featured: false,
+    featured: true,
     stack: ['Vue', 'JavaScript', '3D-printed hardware', 'Sensors'],
     tags: ['IoT', 'Hardware', 'PWA'],
     links: {
@@ -306,6 +306,38 @@ export const projects = [
     metrics: [
       { label: 'Cost', value: 'DIY / low' },
       { label: 'License', value: 'Open source' },
+    ],
+  },
+  {
+    id: 'fishsd-app',
+    name: 'FishSD',
+    tagline: 'South Dakota fishing regs, routes, and species - in your pocket, on the water.',
+    cta: 'Get the app',
+    category: 'Mobile App',
+    status: 'Live',
+    accent: '#2dd4bf',
+    featured: false,
+    stack: ['Android', 'Offline data', 'GPS & route tracking', 'Mapping'],
+    tags: ['Mobile', 'Fishing', 'Offline', 'GPS'],
+    links: {
+      live: 'https://play.google.com/store/apps/details?id=com.fishsd&hl=en_US',
+      github: 'https://github.com/KryptoBeard/FishSD',
+    },
+    summary:
+      'A published Android app for South Dakota anglers: tap any body of water to see its specific regulations and the species it holds, save and re-open fishing routes with automatic distance, track points like fish, boats, and markers, and read depth maps on major waters.',
+    highlights: [
+      'Water-specific fishing regulations - tap a body of water to see its rules and fish.',
+      'Route saving with automatic distance calculation, so you can return to a run later.',
+      'Point tracking for fish, boats, and area markers out on the water.',
+      'Species finder: look up which waters hold a specific species.',
+      'Depth maps on main bodies of water.',
+    ],
+    why:
+      'Fishing regulations and water knowledge are scattered and easy to get wrong. We built FishSD so an angler can pull up the rules, species, and depth for the water in front of them - right from their phone, on the bank.',
+    metrics: [
+      { label: 'Platform', value: 'Android' },
+      { label: 'Focus', value: 'SD waters' },
+      { label: 'On-water', value: 'Routes + points' },
     ],
   },
 ]

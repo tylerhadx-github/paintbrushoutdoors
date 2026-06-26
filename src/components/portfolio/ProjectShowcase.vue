@@ -31,8 +31,12 @@
             :style="{ '--accent': project.accent }"
             @click="open(project)"
           >
-            <div v-if="thumb(project)" class="mini__media">
-              <img :src="thumb(project)" :alt="`${project.name} screenshot`" loading="lazy" />
+            <div class="mini__media" :class="{ 'mini__media--placeholder': !thumb(project) }">
+              <img v-if="thumb(project)" :src="thumb(project)" :alt="`${project.name} screenshot`" loading="lazy" />
+              <template v-else>
+                <span class="mini__media-mark">{{ initials(project.name) }}</span>
+                <span class="mini__media-glow"></span>
+              </template>
             </div>
             <div class="mini__top">
               <span class="mini__mark" :class="{ 'mini__mark--logo': logoMark(project) }">
@@ -171,6 +175,8 @@
   }
 
   .mini {
+    display: flex;
+    flex-direction: column;
     text-align: left;
     cursor: pointer;
     padding: 1.5rem;
@@ -206,6 +212,37 @@
     object-fit: cover;
     object-position: top center;
     display: block;
+  }
+
+  .mini__media--placeholder {
+    position: relative;
+    display: grid;
+    place-items: center;
+    background:
+      radial-gradient(circle at 50% 40%, color-mix(in srgb, var(--accent) 28%, transparent), transparent 60%),
+      linear-gradient(160deg, #15151f, #0c0c12);
+  }
+
+  .mini__media-mark {
+    position: relative;
+    z-index: 1;
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-weight: 700;
+    font-size: clamp(1.8rem, 6vw, 2.6rem);
+    letter-spacing: -0.03em;
+    color: color-mix(in srgb, var(--accent) 80%, #ffffff);
+    text-shadow: 0 6px 30px color-mix(in srgb, var(--accent) 45%, transparent);
+  }
+
+  .mini__media-glow {
+    position: absolute;
+    width: 60%;
+    height: 70%;
+    bottom: -30%;
+    border-radius: 50%;
+    background: var(--accent);
+    filter: blur(50px);
+    opacity: 0.35;
   }
 
   .mini__top {
@@ -266,6 +303,7 @@
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
+    margin-top: auto;
     font-size: 0.85rem;
     font-weight: 600;
     color: color-mix(in srgb, var(--accent) 80%, #fff);
