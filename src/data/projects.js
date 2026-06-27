@@ -38,7 +38,8 @@ export const projects = [
     tags: ['GIS', 'Serverless', 'Mobile', 'Data pipeline', 'Ballistics'],
     links: {
       live: 'https://pha.paintbrushoutdoors.com/',
-      github: 'https://github.com/tylerhadx-github/PHA',
+      // github hidden for now (private repo)
+      // github: 'https://github.com/tylerhadx-github/PHA',
     },
     images: ['pha.png', 'pha-mobile-maps.png', 'pha-mobile-offline.png', 'pha-mobile-ballistics.png'],
     summary:
@@ -127,7 +128,8 @@ export const projects = [
     category: 'Full-stack Marketplace',
     status: 'Live',
     accent: '#ff5d73',
-    featured: true,
+    featured: false,
+    logo: 'logo-midwestgundealer.png',
     stack: ['Vue 3', 'TypeScript', 'Vuetify', 'Vuex', 'Azure SWA', '.NET Functions'],
     tags: ['Marketplace', 'Full-stack', 'Compliance', 'Tested'],
     links: {
@@ -154,37 +156,39 @@ export const projects = [
   {
     id: 'loratext',
     name: 'LoRa Texting',
-    tagline: 'Off-grid encrypted messaging - hardware, firmware, and app you can build yourself.',
+    tagline: 'Off-grid encrypted messaging over a peer-to-peer LoRa mesh - hardware, firmware, and app you build yourself.',
     cta: 'See the build',
     category: 'Hardware + IoT',
     status: 'Open source (DIY kit)',
     accent: '#7c5cff',
     featured: true,
-    stack: ['Vue PWA', 'Web Bluetooth', 'Arduino / C++', 'Custom PCB', 'LoRa'],
-    tags: ['IoT', 'Embedded', 'PCB', 'PWA', 'Web Bluetooth'],
+    stack: ['Vue PWA', 'Web Bluetooth', 'Arduino / C++', 'Custom PCB', 'LoRa mesh'],
+    tags: ['IoT', 'Mesh network', 'Embedded', 'PCB', 'PWA', 'Web Bluetooth'],
     links: {
       live: 'https://lora.paintbrushoutdoors.com/',
-      github: 'https://github.com/tylerhadx-github/LoraText',
-      repos: [
-        { label: 'LoraText (Vue PWA)', url: 'https://github.com/tylerhadx-github/LoraText' },
-        { label: 'LoraArduinoSketch (firmware)', url: 'https://github.com/tylerhadx-github/LoraText', private: true },
-        { label: 'LoraBoardPCB (hardware)', url: 'https://github.com/tylerhadx-github/LoraText', private: true },
-      ],
+      // github + repos hidden for now (private repos)
+      // github: 'https://github.com/tylerhadx-github/LoraText',
+      // repos: [
+      //   { label: 'LoraText (Vue PWA)', url: 'https://github.com/tylerhadx-github/LoraText' },
+      //   { label: 'LoraArduinoSketch (firmware)', url: 'https://github.com/tylerhadx-github/LoraText', private: true },
+      //   { label: 'LoraBoardPCB (hardware)', url: 'https://github.com/tylerhadx-github/LoraText', private: true },
+      // ],
     },
     images: ['loratext.png'],
     summary:
-      'A complete off-grid texting system that spans the entire stack: a custom PCB, Arduino/C++ firmware driving a LoRa radio, and a Vue progressive web app that pairs over Web Bluetooth. Messages are encrypted with a pre-shared key, work with no cell service, and can share live location on a map. Designed to be open-sourced so anyone can build and run their own device.',
+      'A complete off-grid texting system that spans the entire stack: a custom PCB, Arduino/C++ firmware driving a LoRa radio, and a Vue progressive web app that pairs over Web Bluetooth. Devices form a peer-to-peer mesh that relays messages node-to-node - no tower, no cell service - and can share live location on a map. Built as a DIY project and open-sourced so anyone can build and run their own nodes.',
     highlights: [
+      'Peer-to-peer LoRa mesh: nodes relay messages for each other to extend range with no central tower or internet.',
       'End-to-end ownership: custom PCB (LoraBoardPCB) + C++ firmware (LoraArduinoSketch) + Vue PWA (LoraText) + a 3D-printed enclosure.',
       'Pairs phone to radio over Web Bluetooth - no app store, just a PWA.',
       'Pre-shared-key encryption for private messaging completely off the grid.',
       'Background notifications, live location sharing, and an on-map view for groups in the field.',
-      'Packaged as a buildable kit (Tinkercad / Thingiverse models) so the community can make their own.',
+      'Packaged as a DIY build (Tinkercad / Thingiverse models) so the community can make their own nodes.',
     ],
     why:
-      'When you are deep in the backcountry there is no signal, and existing off-grid radios are closed and expensive. We built the whole stack - board, firmware, and app - so a small group can text and share location anywhere, and so we could open-source it for other makers to build.',
+      'When you are deep in the backcountry there is no signal, and existing off-grid radios are closed and expensive. We built the whole stack - board, firmware, and app - as a DIY project so a small group can mesh together and text and share location anywhere, and so we could open-source it for other makers to build.',
     metrics: [
-      { label: 'Stack', value: 'PCB -> firmware -> app' },
+      { label: 'Network', value: 'P2P mesh' },
       { label: 'Range', value: 'Off-grid LoRa' },
       { label: 'Install', value: 'PWA, no app store' },
     ],
@@ -260,6 +264,7 @@ export const projects = [
     status: 'Live',
     accent: '#ffb454',
     featured: false,
+    logo: 'logo-bhmtnlion.png',
     stack: ['JavaScript', 'Web mapping', 'GeoJSON', 'GitHub Pages'],
     tags: ['Mapping', 'Data viz', 'GIS'],
     links: {
@@ -283,7 +288,7 @@ export const projects = [
   },
   {
     id: 'diykestrel',
-    name: 'DIYKestrel',
+    name: 'Kestrel',
     tagline: 'A handheld weather meter you build yourself - hardware plus app.',
     cta: 'See the build',
     category: 'Hardware + IoT',
@@ -291,10 +296,11 @@ export const projects = [
     accent: '#3ddc97',
     featured: true,
     stack: ['Vue', 'JavaScript', '3D-printed hardware', 'Sensors'],
-    tags: ['IoT', 'Hardware', 'PWA'],
+    tags: ['DIY', 'IoT', 'Hardware', 'PWA'],
     links: {
       live: 'https://kestrel.paintbrushoutdoors.com/',
-      github: 'https://github.com/tylerhadx-github/DIYKestrel',
+      // github hidden for now (private repo)
+      // github: 'https://github.com/tylerhadx-github/DIYKestrel',
     },
     images: ['diykestrel.png'],
     summary:
@@ -319,13 +325,14 @@ export const projects = [
     category: 'Mobile App',
     status: 'Live',
     accent: '#2dd4bf',
-    featured: false,
+    featured: true,
     logo: 'logo-fishsd.png',
     stack: ['Android', 'Offline data', 'GPS & route tracking', 'Mapping'],
     tags: ['Mobile', 'Fishing', 'Offline', 'GPS'],
     links: {
       live: 'https://play.google.com/store/apps/details?id=com.fishsd&hl=en_US',
-      github: 'https://github.com/KryptoBeard/FishSD',
+      // github hidden for now (private repo)
+      // github: 'https://github.com/KryptoBeard/FishSD',
     },
     images: ['fishsd-app-map.png', 'fishsd-app-species.png', 'fishsd-app-regs.png', 'fishsd-app-settings.png'],
     summary:
@@ -354,6 +361,7 @@ export const projects = [
     status: 'Live',
     accent: '#6fae5a',
     featured: false,
+    logo: 'logo-dakotatrophy.png',
     stack: ['Web design', 'Responsive site', 'Booking / lead funnel', 'SEO'],
     tags: ['Marketing', 'Outdoors', 'Client work'],
     links: {

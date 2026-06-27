@@ -11,6 +11,21 @@
         </p>
       </header>
 
+      <a
+        class="maker__profile"
+        href="https://www.printables.com/@TylerHaddix_873695"
+        target="_blank"
+        rel="noopener"
+        ref="profile"
+      >
+        <span class="maker__profile-icon"><i class="mdi mdi-printer-3d-nozzle"></i></span>
+        <span class="maker__profile-text">
+          <strong>See every model on Printables</strong>
+          <span>Follow @TylerHaddix for new outdoor prints</span>
+        </span>
+        <i class="mdi mdi-arrow-top-right maker__profile-arrow"></i>
+      </a>
+
       <div class="grid" ref="grid">
         <a
           v-for="model in models"
@@ -47,21 +62,6 @@
           </div>
         </a>
       </div>
-
-      <a
-        class="maker__profile"
-        href="https://www.printables.com/@TylerHaddix_873695"
-        target="_blank"
-        rel="noopener"
-        ref="profile"
-      >
-        <span class="maker__profile-icon"><i class="mdi mdi-printer-3d-nozzle"></i></span>
-        <span class="maker__profile-text">
-          <strong>See every model on Printables</strong>
-          <span>Follow @TylerHaddix for new outdoor prints</span>
-        </span>
-        <i class="mdi mdi-arrow-top-right maker__profile-arrow"></i>
-      </a>
     </div>
   </section>
 </template>
@@ -291,7 +291,7 @@
     display: inline-flex;
     align-items: center;
     gap: 1rem;
-    margin-top: clamp(2rem, 5vw, 3rem);
+    margin-bottom: clamp(2rem, 5vw, 3rem);
     padding: 0.85rem 1.5rem 0.85rem 0.9rem;
     border-radius: 999px;
     text-decoration: none;

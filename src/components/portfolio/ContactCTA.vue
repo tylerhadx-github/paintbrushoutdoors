@@ -7,7 +7,7 @@
     <div class="contact__inner" ref="inner">
       <span class="contact__eyebrow">Let's build something</span>
       <h2 class="contact__title">
-        Have a product that needs to <em>actually ship?</em>
+        Have a product that needs to <em>actually launch?</em>
       </h2>
       <p class="contact__lead">
         We take on full-stack builds, hardware-meets-software projects, AI tools,
