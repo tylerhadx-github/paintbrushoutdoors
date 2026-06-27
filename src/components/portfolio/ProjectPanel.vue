@@ -61,6 +61,24 @@
             <i class="mdi mdi-open-in-new"></i>
           </a>
           <a
+            v-if="iosLink"
+            :href="iosLink"
+            target="_blank"
+            rel="noopener"
+            class="iconlink"
+            :aria-label="`${project.name} on the App Store`"
+          >
+            <i class="mdi mdi-apple"></i>
+          </a>
+          <span
+            v-else-if="project.links.ios"
+            class="iconlink iconlink--disabled"
+            aria-disabled="true"
+            :title="`${project.name} - iOS coming soon`"
+          >
+            <i class="mdi mdi-apple"></i>
+          </span>
+          <a
             v-if="project.links.github"
             :href="project.links.github"
             target="_blank"
@@ -101,6 +119,11 @@
   const displayUrl = computed(() => {
     const url = props.project.links.live || props.project.links.github || ''
     return url.replace(/^https?:\/\//, '').replace(/\/$/, '')
+  })
+
+  const iosLink = computed(() => {
+    const ios = props.project.links.ios
+    return ios && ios.url && !ios.disabled ? ios.url : null
   })
 
   const statusClass = computed(() => {
@@ -348,6 +371,17 @@
     color: #fff;
     transform: translateY(-2px);
     border-color: var(--accent);
+  }
+
+  .iconlink--disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  .iconlink--disabled:hover {
+    color: #c9c9d6;
+    transform: none;
+    border-color: rgba(255, 255, 255, 0.12);
   }
 
   @media (max-width: 860px) {

@@ -311,7 +311,7 @@ export const projects = [
       'Hosted free on GitHub Pages with a live demo.',
     ],
     why:
-      'Commercial wind meters are expensive for what they are. We built DIYKestrel to prove you can pair simple hardware with a clean web app and get the same data for far less - and share it openly.',
+      'Commercial wind meters are expensive for what they are. We built Kestrel to prove you can pair simple hardware with a clean web app and get the same data for far less - and share it openly.',
     metrics: [
       { label: 'Cost', value: 'DIY / low' },
       { label: 'License', value: 'Open source' },
@@ -331,6 +331,9 @@ export const projects = [
     tags: ['Mobile', 'Fishing', 'Offline', 'GPS'],
     links: {
       live: 'https://play.google.com/store/apps/details?id=com.fishsd&hl=en_US',
+      // iOS build is being republished - shows as a disabled App Store button.
+      // To re-enable: set url to the App Store listing and remove `disabled`.
+      ios: { url: '', disabled: true },
       // github hidden for now (private repo)
       // github: 'https://github.com/KryptoBeard/FishSD',
     },

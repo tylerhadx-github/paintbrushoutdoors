@@ -58,7 +58,7 @@
 
   const projectHints = [
     'Public Hunting Atlas', 'SD Fish AI', 'SD Hunt AI', 'Midwest Gun Deals',
-    'LoRa Texting', 'TitleX Archery', 'NockScore', 'DIYKestrel', 'FishSD',
+    'LoRa Texting', 'TitleX Archery', 'NockScore', 'Kestrel', 'FishSD',
   ]
 
   const { reduced, timeline, gsap } = useScrollReveal()

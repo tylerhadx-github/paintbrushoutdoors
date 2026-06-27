@@ -28,6 +28,23 @@
                 <i class="mdi mdi-open-in-new"></i> Visit live
               </a>
               <a
+                v-if="iosLink"
+                :href="iosLink"
+                target="_blank"
+                rel="noopener"
+                class="btn btn--ghost"
+              >
+                <i class="mdi mdi-apple"></i> App Store
+              </a>
+              <span
+                v-else-if="project.links.ios"
+                class="btn btn--ghost btn--disabled"
+                aria-disabled="true"
+                title="iOS version coming back soon"
+              >
+                <i class="mdi mdi-apple"></i> iOS - coming soon
+              </span>
+              <a
                 v-if="project.links.github"
                 :href="project.links.github"
                 target="_blank"
@@ -134,6 +151,11 @@
 
   const webShots = computed(() => gallery.value.filter((i) => !i.mobile))
   const mobileShots = computed(() => gallery.value.filter((i) => i.mobile))
+
+  const iosLink = computed(() => {
+    const ios = props.project?.links?.ios
+    return ios && ios.url && !ios.disabled ? ios.url : null
+  })
 
   const statusClass = computed(() => {
     if (!props.project) return ''
@@ -276,6 +298,18 @@
   .btn--ghost:hover {
     transform: translateY(-2px);
     border-color: var(--accent);
+  }
+
+  .btn--disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+    color: #b3b3c0;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .btn--disabled:hover {
+    transform: none;
+    border-color: rgba(255, 255, 255, 0.12);
   }
 
   .badge {
