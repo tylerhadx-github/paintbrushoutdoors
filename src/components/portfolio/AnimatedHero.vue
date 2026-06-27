@@ -101,6 +101,8 @@
     position: absolute;
     inset: 0;
     z-index: 0;
+    -webkit-mask-image: linear-gradient(to bottom, #000 72%, transparent 98%);
+    mask-image: linear-gradient(to bottom, #000 72%, transparent 98%);
   }
 
   .orb {
