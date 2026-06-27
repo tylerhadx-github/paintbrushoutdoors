@@ -5,25 +5,29 @@
         <span class="timeline__eyebrow">The throughline</span>
         <h2 class="timeline__title">Engineered from the bottom of the lake to the top of the mountain</h2>
         <p class="timeline__subtitle">
-          Every project below shares a pattern: take a real problem all the way
-          from idea to a live product - frontend, backend, infrastructure, and
-          sometimes the hardware itself.
+          Every product we ship follows the same path: take a real problem all
+          the way from idea to a live build - frontend, backend, infrastructure,
+          and sometimes the hardware itself.
         </p>
       </header>
 
       <ol class="track" ref="track">
         <span class="track__rail"><span class="track__fill" ref="fill"></span></span>
         <li
-          v-for="p in items"
-          :key="p.id"
+          v-for="s in items"
+          :key="s.id"
           class="node"
-          :style="{ '--accent': p.accent }"
+          :style="{ '--accent': s.accent }"
         >
           <span class="node__dot"></span>
           <div class="node__card">
-            <span class="node__cat">{{ p.category }}</span>
-            <h3 class="node__name">{{ p.name }}</h3>
-            <p class="node__line">{{ p.tagline }}</p>
+            <div class="node__head">
+              <span class="node__icon"><i class="mdi" :class="s.icon"></i></span>
+              <span class="node__step">Stage {{ String(s.step).padStart(2, '0') }}</span>
+              <span class="node__cat">{{ s.label }}</span>
+            </div>
+            <h3 class="node__name">{{ s.name }}</h3>
+            <p class="node__line">{{ s.line }}</p>
           </div>
         </li>
       </ol>
@@ -33,14 +37,14 @@
 
 <script setup>
   import { onMounted, ref } from 'vue'
-  import { projects } from '@/data/projects'
+  import { stages } from '@/data/process'
   import { useScrollReveal } from '@/composables/useScrollReveal'
 
   const root = ref(null)
   const head = ref(null)
   const track = ref(null)
   const fill = ref(null)
-  const items = projects
+  const items = stages
 
   const { reduced, revealOne, revealStagger, gsap } = useScrollReveal()
 
@@ -170,6 +174,34 @@
     border-color: color-mix(in srgb, var(--accent) 50%, transparent);
   }
 
+  .node__head {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .node__icon {
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    flex: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    color: color-mix(in srgb, var(--accent) 85%, #fff);
+    background: color-mix(in srgb, var(--accent) 16%, transparent);
+    border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+  }
+
+  .node__step {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #8a8a99;
+  }
+
   .node__cat {
     font-size: 0.72rem;
     letter-spacing: 0.1em;
@@ -177,10 +209,16 @@
     color: color-mix(in srgb, var(--accent) 80%, #fff);
   }
 
+  .node__step + .node__cat::before {
+    content: '·';
+    margin-right: 0.6rem;
+    color: rgba(255, 255, 255, 0.25);
+  }
+
   .node__name {
     font-family: 'Space Grotesk', system-ui, sans-serif;
     font-size: 1.15rem;
-    margin: 0.25rem 0 0.3rem;
+    margin: 0.6rem 0 0.3rem;
     color: #f4f4f8;
   }
 

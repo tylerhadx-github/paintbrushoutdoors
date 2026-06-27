@@ -3,7 +3,7 @@
     <div class="showcase__inner">
       <header class="showcase__head" ref="head">
         <span class="showcase__eyebrow">Selected work</span>
-        <h2 class="showcase__title">Products we've shipped</h2>
+        <h2 class="showcase__title">Products we've launched</h2>
         <p class="showcase__subtitle">
           A mix of live apps, full-stack platforms, hardware, and open-source kits.
           Tap any project to dig into the details.

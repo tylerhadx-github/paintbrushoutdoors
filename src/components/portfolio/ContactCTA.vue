@@ -52,9 +52,28 @@
           ></textarea>
         </div>
 
+        <input
+          v-model="form.botcheck"
+          class="contact__honeypot"
+          type="text"
+          name="botcheck"
+          tabindex="-1"
+          autocomplete="off"
+          aria-hidden="true"
+        />
+
+        <p v-if="error" class="contact__error" role="alert">
+          <i class="mdi mdi-alert-circle-outline"></i> {{ error }}
+        </p>
+
         <div class="contact__actions">
-          <button type="submit" class="btn btn--primary">
-            <i class="mdi mdi-send-outline"></i> Send message
+          <button type="submit" class="btn btn--primary" :disabled="sending">
+            <template v-if="sending">
+              <i class="mdi mdi-loading mdi-spin"></i> Sending...
+            </template>
+            <template v-else>
+              <i class="mdi mdi-send-outline"></i> Send message
+            </template>
           </button>
           <a class="btn btn--ghost" href="https://github.com/tylerhadx-github" target="_blank" rel="noopener">
             <i class="mdi mdi-github"></i> GitHub
@@ -91,28 +110,67 @@
 <script setup>
   import { onMounted, reactive, ref } from 'vue'
   import { useScrollReveal } from '@/composables/useScrollReveal'
+  import { WEB3FORMS_ACCESS_KEY, WEB3FORMS_ENDPOINT } from '@/config/contact'
 
   const root = ref(null)
   const inner = ref(null)
   const sent = ref(false)
+  const sending = ref(false)
+  const error = ref('')
 
   const form = reactive({
     name: '',
     email: '',
     message: '',
+    botcheck: '',
   })
 
-  // Not wired to a backend yet - this just shows a local confirmation.
-  function onSubmit () {
+  async function onSubmit () {
     if (!form.name || !form.email || !form.message) return
-    sent.value = true
+    if (form.botcheck) return // honeypot tripped - silently ignore bots
+
+    sending.value = true
+    error.value = ''
+
+    try {
+      const res = await fetch(WEB3FORMS_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          name: form.name,
+          email: form.email,
+          message: form.message,
+          subject: `New inquiry from ${form.name} - Paintbrush Outdoors`,
+          from_name: 'Paintbrush Outdoors site',
+          botcheck: form.botcheck,
+        }),
+      })
+
+      const result = await res.json().catch(() => ({}))
+
+      if (res.ok && result.success) {
+        sent.value = true
+      } else {
+        error.value = result.message || 'Something went wrong sending your message. Please try again.'
+      }
+    } catch {
+      error.value = 'Could not reach the server. Check your connection and try again.'
+    } finally {
+      sending.value = false
+    }
   }
 
   function reset () {
     form.name = ''
     form.email = ''
     form.message = ''
+    form.botcheck = ''
     sent.value = false
+    error.value = ''
   }
 
   const { revealStagger } = useScrollReveal()
@@ -243,6 +301,34 @@
     border-color: rgba(124, 92, 255, 0.7);
     background: rgba(124, 92, 255, 0.06);
     box-shadow: 0 0 0 4px rgba(124, 92, 255, 0.12);
+  }
+
+  .contact__honeypot {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .contact__error {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0 0 1rem;
+    padding: 0.8rem 1rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 93, 115, 0.4);
+    background: rgba(255, 93, 115, 0.08);
+    color: #ff8a9b;
+    font-size: 0.9rem;
+  }
+
+  .btn:disabled {
+    opacity: 0.65;
+    cursor: progress;
+    transform: none;
   }
 
   .contact__sent {
