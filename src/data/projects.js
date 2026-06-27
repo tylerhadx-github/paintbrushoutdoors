@@ -35,19 +35,20 @@ export const projects = [
     accent: '#3ddc97',
     featured: true,
     stack: ['.NET 8', 'Azure Functions', 'React Native', 'Cloudflare R2', 'ArcGIS / GeoJSON'],
-    tags: ['GIS', 'Serverless', 'Mobile', 'Data pipeline'],
+    tags: ['GIS', 'Serverless', 'Mobile', 'Data pipeline', 'Ballistics'],
     links: {
       live: 'https://pha.paintbrushoutdoors.com/',
       github: 'https://github.com/tylerhadx-github/PHA',
     },
     images: ['pha.png', 'pha-mobile-maps.png', 'pha-mobile-offline.png', 'pha-mobile-ballistics.png'],
     summary:
-      'A nationwide public-land hunting atlas built as a true cross-platform product: a .NET 8 Azure Functions backend continuously harvests 300+ government GIS feature-service layers across all 50 states, normalizes them, and serves them to a React Native mobile app that works in the field with no signal.',
+      'A nationwide public-land hunting atlas built as a true cross-platform product: a .NET 8 Azure Functions backend continuously harvests 300+ government GIS feature-service layers across all 50 states, normalizes them, and serves them to a React Native mobile app that works in the field with no signal. It even bundles a built-in ballistics calculator so hunters can plan boundaries and dial in their shot from one app.',
     highlights: [
       'Automated "LayerHarvester" pulls 303+ public-land feature-service layers from state and federal GIS servers, with batch processing so huge harvests never time out.',
       'Resilient ingestion: layers can be flagged to skip, batches recover independently, and every run writes an auditable harvest log.',
       'Processed layers are stored in Cloudflare R2 and served as compact GeoJSON for fast, offline-capable maps.',
       'onX-style export so hunters can take boundaries into the apps and GPS units they already use.',
+      'Built-in ballistics calculator for dialing in trajectory and drop right alongside the map - no second app required.',
       'One data backend powering both web and a native mobile experience.',
     ],
     why:
