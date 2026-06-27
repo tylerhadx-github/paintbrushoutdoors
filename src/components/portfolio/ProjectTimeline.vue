@@ -46,11 +46,13 @@
   const fill = ref(null)
   const items = stages
 
-  const { reduced, revealOne, revealStagger, gsap } = useScrollReveal()
+  const { reduced, revealOne, revealStagger, gsap, ScrollTrigger } = useScrollReveal()
 
   onMounted(() => {
     revealOne(head.value, { y: 28 })
     revealStagger(track.value, '.node', { y: 36, stagger: 0.08 })
+
+    const nodes = track.value ? track.value.querySelectorAll('.node') : []
 
     if (!reduced && fill.value && track.value) {
       gsap.fromTo(
@@ -67,8 +69,19 @@
           },
         }
       )
-    } else if (fill.value) {
-      fill.value.style.transform = 'scaleY(1)'
+
+      // Light up each dot as the rail fill passes it (same 70% reference line).
+      nodes.forEach((node) => {
+        ScrollTrigger.create({
+          trigger: node,
+          start: 'top 70%',
+          onEnter: () => node.classList.add('is-active'),
+          onLeaveBack: () => node.classList.remove('is-active'),
+        })
+      })
+    } else {
+      if (fill.value) fill.value.style.transform = 'scaleY(1)'
+      nodes.forEach((node) => node.classList.add('is-active'))
     }
   })
 </script>
@@ -158,7 +171,14 @@
     border-radius: 50%;
     background: #14141c;
     border: 2px solid var(--accent);
-    box-shadow: 0 0 14px color-mix(in srgb, var(--accent) 60%, transparent);
+    box-shadow: 0 0 0 0 transparent;
+    transition: background 0.35s ease, box-shadow 0.35s ease, transform 0.35s ease;
+  }
+
+  .node.is-active .node__dot {
+    background: var(--accent);
+    transform: scale(1.15);
+    box-shadow: 0 0 16px color-mix(in srgb, var(--accent) 70%, transparent);
   }
 
   .node__card {

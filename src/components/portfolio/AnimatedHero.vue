@@ -8,13 +8,13 @@
 
     <div class="hero__inner">
       <p class="hero__eyebrow" ref="eyebrow">
-        <span class="hero__dot"></span> We ship real products, not portfolios
+        <span class="hero__dot"></span> Outdoors in our blood, full-stack in our hands
       </p>
 
       <h1 class="hero__headline">
-        <span class="line"><span class="line__inner">We build and ship</span></span>
-        <span class="line"><span class="line__inner">real <em>products</em>,</span></span>
-        <span class="line"><span class="line__inner">not just demos.</span></span>
+        <span class="line"><span class="line__inner">A full stack of outdoor</span></span>
+        <span class="line"><span class="line__inner"><em>products</em> and innovation,</span></span>
+        <span class="line"><span class="line__inner">built by people who live it.</span></span>
       </h1>
 
       <p class="hero__intro" ref="intro">
