@@ -70,7 +70,7 @@ export const projects = [
     accent: '#5ab0ff',
     featured: true,
     stack: ['Vue', 'LLM / RAG', 'Auth', 'Cloud API'],
-    tags: ['AI', 'Full-stack', 'SaaS'],
+    tags: ['AI chat', 'Scout your water', 'Compare lakes'],
     links: {
       live: 'https://fish.paintbrushoutdoors.com/',
     },
@@ -100,7 +100,7 @@ export const projects = [
     accent: '#ffb454',
     featured: true,
     stack: ['Vue', 'LLM / RAG', 'Stats engine', 'Auth'],
-    tags: ['AI', 'Full-stack', 'Data'],
+    tags: ['AI strategy', 'Draw odds', 'Unit rankings'],
     links: {
       live: 'https://research.paintbrushoutdoors.com/',
     },
