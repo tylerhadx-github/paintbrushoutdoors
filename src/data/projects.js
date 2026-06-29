@@ -63,20 +63,20 @@ export const projects = [
   {
     id: 'fishsd',
     name: 'SD Fish AI',
-    tagline: 'Scout your water ahead of time - an AI fishing partner that actually knows it.',
+    tagline: 'Fishing research & e-scouting for South Dakota waters - find your spot before you arrive.',
     cta: 'Meet the AI',
     category: 'AI Product',
     status: 'Live',
     accent: '#5ab0ff',
     featured: true,
     stack: ['Vue', 'LLM / RAG', 'Auth', 'Cloud API'],
-    tags: ['AI chat', 'Scout your water', 'Compare lakes'],
+    tags: ['Research', 'E-Scouting', 'AI chat', 'Scout your water', 'Compare lakes'],
     links: {
       live: 'https://fish.paintbrushoutdoors.com/',
     },
     images: ['fishsd.png', 'fishsd-map.png'],
     summary:
-      'A conversational fishing research assistant for scouting South Dakota waters before you ever leave the house. Anglers chat with an AI grounded in real lake and species data, save their research, and compare bodies of water side by side behind a free account - so they know where to go before the trip.',
+      'SD Fish AI is a fishing research and e-scouting assistant for South Dakota waters. Chat with an AI grounded in real lake and species data, research access and patterns, save your findings, and compare bodies of water side by side - so you scout and find your spot before you ever arrive.',
     highlights: [
       'Natural-language chat grounded in regional fishing and water data instead of generic answers.',
       'Saved research so anglers build a personal knowledge base over time.',
@@ -93,20 +93,20 @@ export const projects = [
   {
     id: 'sdhunt',
     name: 'SD Hunt AI',
-    tagline: 'Scout your hunt before the season - draw odds, unit rankings, and a personalized strategy.',
+    tagline: 'Hunt research & e-scouting - draw odds, unit rankings, and your spot before you arrive.',
     cta: 'Plan a hunt',
     category: 'AI Product',
     status: 'Live',
     accent: '#ffb454',
     featured: true,
     stack: ['Vue', 'LLM / RAG', 'Stats engine', 'Auth'],
-    tags: ['AI strategy', 'Draw odds', 'Unit rankings'],
+    tags: ['Research', 'E-Scouting', 'AI strategy', 'Draw odds', 'Unit rankings'],
     links: {
       live: 'https://research.paintbrushoutdoors.com/',
     },
     images: ['sdhunt.png', 'sdhunt-map.png'],
     summary:
-      'A pre-season hunt-research platform for scouting before you apply or head out. It turns years of draw data and unit information into rankings, draw statistics, and an AI-built strategy tailored to each hunter\'s goals.',
+      'SD Hunt AI is a hunt research and e-scouting platform for Western big-game seasons. It turns years of draw data and unit information into rankings, draw-odds statistics, and an AI-built strategy tailored to your goals - so you research units and find your spot before you arrive.',
     highlights: [
       'Unit rankings that distill messy regulation and harvest data into a clear shortlist.',
       'Draw-odds statistics so hunters apply with realistic expectations.',
@@ -265,17 +265,17 @@ export const projects = [
     accent: '#ffb454',
     featured: false,
     logo: 'logo-bhmtnlion.png',
-    stack: ['JavaScript', 'Web mapping', 'GeoJSON', 'GitHub Pages'],
+    stack: ['Vue 3', 'Vite', 'ArcGIS / GeoJSON', 'Azure SWA'],
     tags: ['Mapping', 'Data viz', 'GIS'],
     links: {
-      live: 'https://tylerhadx-github.github.io/BHMTNLION/',
+      live: 'https://bhmtnlion.paintbrushoutdoors.com/',
     },
     images: ['bhmtnlion.png'],
     summary:
-      'An interactive map that visualizes South Dakota GFP mountain lion harvest data alongside terrain context - harvest locations, multi-year heatmaps, snow depth, mines, and caves - with onX export for the field.',
+      'An interactive map that visualizes South Dakota GFP mountain lion harvest data alongside terrain context - harvest locations, multi-year heatmaps, snow depth, roads, and mines - with onX export for the field.',
     highlights: [
       'Harvest-location heatmaps spanning multiple seasons (2012-2017) to reveal patterns.',
-      'Layered context: snow depth charts, road maps, mines, and caves toggled on demand.',
+      'Layered context: snow depth charts, road maps, and mines toggled on demand.',
       'onX export so insights move from the browser into a hunter\'s GPS workflow.',
       'Cached data for fast, reliable loads on a static host.',
     ],

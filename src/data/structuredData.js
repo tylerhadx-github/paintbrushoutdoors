@@ -100,6 +100,7 @@ function projectNode (project) {
     url,
     applicationCategory: applicationCategory(project),
     operatingSystem: isMobile(project) ? 'ANDROID' : 'Web',
+    ...(project.tags?.length ? { keywords: project.tags.join(', ') } : {}),
     ...(image ? { screenshot: image, image } : {}),
     author: personRef,
     creator: personRef,
