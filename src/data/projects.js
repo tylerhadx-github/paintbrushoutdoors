@@ -270,7 +270,7 @@ export const projects = [
     links: {
       live: 'https://bhmtnlion.paintbrushoutdoors.com/',
     },
-    images: ['bhmtnlion.png'],
+    images: ['bhmtnlion.jpg', 'bhmtnlion-mobile.jpg'],
     summary:
       'An interactive map that visualizes South Dakota GFP mountain lion harvest data alongside terrain context - harvest locations, multi-year heatmaps, snow depth, roads, and mines - with onX export for the field.',
     highlights: [
