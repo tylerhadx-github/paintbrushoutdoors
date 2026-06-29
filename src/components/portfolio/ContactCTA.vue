@@ -89,6 +89,7 @@
       </div>
 
       <a
+        ref="youtube"
         class="contact__youtube"
         href="https://www.youtube.com/@haddixhunting"
         target="_blank"
@@ -97,7 +98,10 @@
         <span class="contact__youtube-icon"><i class="mdi mdi-youtube"></i></span>
         <span class="contact__youtube-text">
           <strong>Follow the hunts in the wild</strong>
-          <span>Haddix Hunting on YouTube</span>
+          <span class="contact__youtube-count">
+            <span class="contact__youtube-count-num">{{ displayViews.toLocaleString() }}</span>
+            views on Haddix Hunting
+          </span>
         </span>
         <i class="mdi mdi-arrow-top-right contact__youtube-arrow"></i>
       </a>
@@ -114,9 +118,35 @@
 
   const root = ref(null)
   const inner = ref(null)
+  const youtube = ref(null)
   const sent = ref(false)
   const sending = ref(false)
   const error = ref('')
+
+  const TARGET_VIEWS = 658599
+  const displayViews = ref(0)
+  let viewsAnimated = false
+
+  function animateViews () {
+    if (viewsAnimated) return
+    viewsAnimated = true
+
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (prefersReduced) {
+      displayViews.value = TARGET_VIEWS
+      return
+    }
+
+    const duration = 2200
+    const start = performance.now()
+    function tick (now) {
+      const progress = Math.min((now - start) / duration, 1)
+      const eased = 1 - Math.pow(1 - progress, 3) // easeOutCubic
+      displayViews.value = Math.round(TARGET_VIEWS * eased)
+      if (progress < 1) requestAnimationFrame(tick)
+    }
+    requestAnimationFrame(tick)
+  }
 
   const form = reactive({
     name: '',
@@ -177,6 +207,20 @@
 
   onMounted(() => {
     revealStagger(inner.value, ':scope > *', { y: 30, stagger: 0.1 })
+
+    if (youtube.value && 'IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            animateViews()
+            io.disconnect()
+          }
+        })
+      }, { threshold: 0.4 })
+      io.observe(youtube.value)
+    } else {
+      displayViews.value = TARGET_VIEWS
+    }
   })
 </script>
 
@@ -454,6 +498,20 @@
   .contact__youtube-text span {
     color: #b3b3c0;
     font-size: 0.85rem;
+  }
+
+  .contact__youtube-count {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.35rem;
+  }
+
+  .contact__youtube-count-num {
+    color: #ff5c75;
+    font-weight: 700;
+    font-size: 1rem;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.01em;
   }
 
   .contact__youtube-arrow {
