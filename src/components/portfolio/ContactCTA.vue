@@ -114,7 +114,12 @@
 <script setup>
   import { onMounted, reactive, ref } from 'vue'
   import { useScrollReveal } from '@/composables/useScrollReveal'
-  import { WEB3FORMS_ACCESS_KEY, WEB3FORMS_ENDPOINT } from '@/config/contact'
+  import {
+    CONTACT_FORM_SETUP_MESSAGE,
+    isContactFormConfigured,
+    WEB3FORMS_ACCESS_KEY,
+    WEB3FORMS_ENDPOINT,
+  } from '@/config/contact'
 
   const root = ref(null)
   const inner = ref(null)
@@ -158,6 +163,11 @@
   async function onSubmit () {
     if (!form.name || !form.email || !form.message) return
     if (form.botcheck) return // honeypot tripped - silently ignore bots
+
+    if (!isContactFormConfigured()) {
+      error.value = CONTACT_FORM_SETUP_MESSAGE
+      return
+    }
 
     sending.value = true
     error.value = ''
