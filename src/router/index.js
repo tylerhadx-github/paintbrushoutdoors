@@ -24,6 +24,16 @@ const routes = [
         name: 'Product',
         component: () => import('@/components/ProductDescription.vue'),
       },
+      {
+        path: 'privacy',
+        name: 'Privacy',
+        component: () => import('@/views/Privacy.vue'),
+      },
+      {
+        path: 'data-deletion',
+        name: 'DataDeletion',
+        component: () => import('@/views/DataDeletion.vue'),
+      },
     ],
   },
 ]
