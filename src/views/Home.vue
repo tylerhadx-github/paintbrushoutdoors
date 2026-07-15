@@ -5,6 +5,7 @@
     <ProjectShowcase />
     <SkillStack />
     <MakerShelf />
+    <FamilyStories />
     <ContactCTA />
   </div>
 </template>
@@ -15,6 +16,7 @@
   import ProjectShowcase from '@/components/portfolio/ProjectShowcase.vue'
   import SkillStack from '@/components/portfolio/SkillStack.vue'
   import MakerShelf from '@/components/portfolio/MakerShelf.vue'
+  import FamilyStories from '@/components/portfolio/FamilyStories.vue'
   import ContactCTA from '@/components/portfolio/ContactCTA.vue'
   import { useJsonLd } from '@/composables/useJsonLd'
   import { buildSiteGraph } from '@/data/structuredData'

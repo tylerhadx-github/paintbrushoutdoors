@@ -35,6 +35,7 @@
     { id: 'work', label: 'Work' },
     { id: 'skills', label: 'Skills' },
     { id: 'maker', label: 'Maker' },
+    { id: 'stories', label: 'Stories' },
     { id: 'contact', label: 'Contact' },
   ]
 
