@@ -1,0 +1,108 @@
+/**
+ * Quiet rotating edge light for primary actions and dialogs.
+ * A short purple-to-mint sweep, not a full neon ring.
+ */
+
+@property --glow-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes glow-rotate {
+  to {
+    --glow-angle: 360deg;
+  }
+}
+
+.btn--primary,
+.nav__cta,
+.detail__sheet {
+  --glow-a: #7c5cff;
+  --glow-b: #3ddc97;
+  isolation: isolate;
+}
+
+.btn--primary,
+.nav__cta {
+  position: relative;
+}
+
+.btn--primary::before,
+.nav__cta::before,
+.detail__sheet::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: conic-gradient(
+    from var(--glow-angle),
+    transparent 0 78%,
+    var(--glow-a) 88%,
+    var(--glow-b) 94%,
+    transparent 100%
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 2;
+  animation: glow-rotate 9s linear infinite;
+}
+
+.btn--primary::after,
+.nav__cta::after {
+  content: "";
+  position: absolute;
+  inset: -5px;
+  border-radius: inherit;
+  background: conic-gradient(
+    from var(--glow-angle),
+    transparent 0 80%,
+    color-mix(in srgb, var(--glow-a) 55%, transparent) 90%,
+    color-mix(in srgb, var(--glow-b) 40%, transparent) 96%,
+    transparent 100%
+  );
+  filter: blur(6px);
+  opacity: 0.45;
+  z-index: -1;
+  pointer-events: none;
+  animation: glow-rotate 9s linear infinite;
+}
+
+.btn--primary:hover::after,
+.nav__cta:hover::after {
+  opacity: 0.7;
+}
+
+.btn--primary:disabled::before,
+.btn--primary:disabled::after {
+  animation: none;
+  opacity: 0.25;
+}
+
+.detail__sheet {
+  --glow-a: var(--accent, #7c5cff);
+  --glow-b: color-mix(in srgb, var(--accent, #7c5cff) 42%, #f0e2c4);
+}
+
+.detail__sheet::before {
+  opacity: 0.7;
+  animation-duration: 16s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn--primary::before,
+  .btn--primary::after,
+  .nav__cta::before,
+  .nav__cta::after,
+  .detail__sheet::before {
+    animation: none;
+  }
+}
