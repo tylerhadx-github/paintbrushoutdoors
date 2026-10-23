@@ -37,31 +37,10 @@ export const guideScreens = {
   'Bring a file in': browser('Import', [
     row('status', 'Imported 12 of 12 marker(s)'),
   ]),
-  'Open Offline Maps on the phone': phone('Offline Maps', [
-    row('button', 'Add new download'),
-    row('empty', 'No offline maps saved on this phone.'),
-  ]),
-  'Check the counties in view': phone('Counties in view', [
-    row('note', 'Check the counties to save. The outline on the map is the download area.'),
-    row('field', 'Search counties'),
-    row('check', 'County in view', true),
-    row('check', 'Another county in view'),
-  ]),
-  'Choose Low, Medium, or High': phone('Quality', [
-    row('radio', 'Low'),
-    row('radio', 'Medium', true),
-    row('radio', 'High'),
-    row('button', 'Download county'),
-    row('status', 'Downloading · 64%'),
-  ]),
-  'Or request the county from the website': browser('New Offline Map Request', [
-    row('note', 'Downloaded tiles play back on the mobile app, not in this browser.'),
-    row('field', 'Select County'),
-    row('radio', 'Low'),
-    row('radio', 'Medium', true),
-    row('radio', 'High'),
-    row('button', 'Create Request'),
-  ]),
+  'Open Offline Maps on the phone': photo('pha-offline-empty.jpg'),
+  'Check the counties in view': photo('pha-offline-counties.jpg'),
+  'Choose Low, Medium, or High': photo('pha-offline-quality.jpg'),
+  'Or request the county from the website': photo('pha-offline-web.jpg'),
   'Start tracking on the phone': phone('Routes', [
     row('status', 'Active'),
     row('note', 'Started · Duration · miles'),
