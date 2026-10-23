@@ -15,9 +15,12 @@
         >{{ link.label }}</a>
       </nav>
 
-      <a href="#contact" class="nav__cta" @click="go($event, '#contact')">
-        Contact
-      </a>
+      <div class="nav__end">
+        <router-link to="/guides" class="nav__guides">Guides</router-link>
+        <a href="#contact" class="nav__cta" @click="go($event, '#contact')">
+          Contact
+        </a>
+      </div>
     </div>
   </header>
 </template>
@@ -148,6 +151,23 @@
 
   .nav__links a:hover::after {
     width: 100%;
+  }
+
+  .nav__end {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+  }
+
+  .nav__guides {
+    text-decoration: none;
+    color: #b3b3c0;
+    font-size: 0.95rem;
+  }
+
+  .nav__guides:hover,
+  .nav__guides.router-link-active {
+    color: #fff;
   }
 
   .nav__cta {

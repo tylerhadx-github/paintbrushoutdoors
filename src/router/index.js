@@ -34,6 +34,21 @@ const routes = [
         name: 'DataDeletion',
         component: () => import('@/views/DataDeletion.vue'),
       },
+      {
+        path: 'guides',
+        name: 'Guides',
+        component: () => import('@/views/guides/GuidesIndex.vue'),
+      },
+      {
+        path: ':product/:guide',
+        name: 'HowTo',
+        component: () => import('@/views/guides/HowToPage.vue'),
+      },
+      {
+        path: ':product',
+        name: 'ProductGuide',
+        component: () => import('@/views/guides/ProductGuide.vue'),
+      },
     ],
   },
 ]
