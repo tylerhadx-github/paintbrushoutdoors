@@ -44,6 +44,14 @@
               >
                 <i class="mdi mdi-apple"></i> iOS - coming soon
               </span>
+              <router-link
+                v-if="guidePath"
+                :to="guidePath"
+                class="btn btn--ghost"
+                @click="emit('close')"
+              >
+                <i class="mdi mdi-book-open-page-variant"></i> How to use
+              </router-link>
               <a
                 v-if="project.links.github"
                 :href="project.links.github"
@@ -131,6 +139,7 @@
 <script setup>
   import { computed, watch } from 'vue'
   import { screenshot } from '@/data/screenshots'
+  import { guidePathForProject } from '@/data/guides'
 
   const props = defineProps({
     project: { type: Object, default: null },
@@ -151,6 +160,8 @@
 
   const webShots = computed(() => gallery.value.filter((i) => !i.mobile))
   const mobileShots = computed(() => gallery.value.filter((i) => i.mobile))
+
+  const guidePath = computed(() => guidePathForProject(props.project?.id))
 
   const iosLink = computed(() => {
     const ios = props.project?.links?.ios
