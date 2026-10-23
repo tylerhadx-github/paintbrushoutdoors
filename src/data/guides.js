@@ -237,7 +237,7 @@ export const guideProducts = [
         ],
         [
           'Map-tap solutions are on the phone. The website shoot page is the form and the drop chart.',
-          'Share on a rifle copies the loads you check to another account. Show code or Share link on the website. The other person uses Import code and saves their own copy. A rifle with no loads cannot be shared.',
+          'Share on a rifle copies the loads you check to another account. The QR code holds that rifle and those loads. The other person uses Import code and saves their own copy. A rifle with no loads cannot be shared.',
         ],
       ),
       guide(
