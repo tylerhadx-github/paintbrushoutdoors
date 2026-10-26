@@ -894,12 +894,12 @@ export const guideProducts = [
   },
   {
     slug: 'traileye',
-    projectId: null,
+    projectId: 'traileye',
     name: 'TrailEye',
     eyebrow: 'Trail cameras',
     promise: 'Sign in, upload the photos, and see the cameras on the map.',
     lede: 'TrailEye is the gallery for animal detections. You upload photos. The app queues them. The map is where you place the cameras.',
-    openLabel: '',
+    openLabel: 'Open TrailEye',
     story: ['upload', 'map'],
     hold: [
       'The older note about scanning a folder is not the button on the gallery. Use Upload Photos.',

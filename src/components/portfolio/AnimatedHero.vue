@@ -57,7 +57,7 @@
   const orb2 = ref(null)
 
   const projectHints = [
-    'Public Hunting Atlas', 'SD Fish AI', 'SD Hunt AI', 'Gear Vault', 'Hunt Planning', 'Midwest Gun Deals',
+    'Public Hunting Atlas', 'SD Fish AI', 'SD Hunt AI', 'Gear Vault', 'Hunt Planning', 'TrailEye', 'Midwest Gun Deals',
     'LoRa Texting', 'TitleX Archery', 'NockScore', 'Kestrel', 'FishSD',
   ]
 

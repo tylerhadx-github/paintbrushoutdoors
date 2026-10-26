@@ -179,6 +179,35 @@ export const projects = [
     ],
   },
   {
+    id: 'traileye',
+    name: 'TrailEye',
+    tagline: 'Trail-camera photos, tagged, and ready to search.',
+    cta: 'Open TrailEye',
+    category: 'Trail cameras',
+    status: 'Live',
+    accent: '#3ddc97',
+    featured: true,
+    stack: ['Vue', 'Paintbrush ID', 'Azure Static Web Apps'],
+    tags: ['Trail cameras', 'Species tags', 'Gallery', 'Camera map'],
+    links: {
+      live: 'https://traileye.paintbrushoutdoors.com/',
+    },
+    images: [],
+    summary:
+      'TrailEye turns a season of trail-camera photos into a searchable library. Photos are tagged for species and activity, then filtered by tag, camera, and time of day. Camera locations sit on a map.',
+    highlights: [
+      'Upload a card dump and the gallery tags each frame.',
+      'Filter by species tag, camera, and time of day, and star the keepers.',
+      'Plot camera locations and walk a location’s captures from the map.',
+    ],
+    why:
+      'A season of trail cameras is mostly empty frames. TrailEye keeps the photos, the tags, and the camera locations in one library.',
+    metrics: [
+      { label: 'Library', value: 'Tagged photos' },
+      { label: 'Map', value: 'Camera locations' },
+    ],
+  },
+  {
     id: 'midwestgundealer',
     name: 'Midwest Gun Deals',
     tagline: 'A full marketplace, compliance engine, and ad platform in one app.',
