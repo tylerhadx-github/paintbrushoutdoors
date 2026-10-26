@@ -121,6 +121,64 @@ export const projects = [
     ],
   },
   {
+    id: 'gear-vault',
+    name: 'Gear Vault',
+    tagline: 'Your gear, its weight, and the rifles and cameras on your account.',
+    cta: 'Open Gear Vault',
+    category: 'Hunting gear',
+    status: 'Beta',
+    accent: '#3ddc97',
+    featured: true,
+    stack: ['Vue', 'Paintbrush ID', 'Azure Static Web Apps'],
+    tags: ['Gear catalog', 'Pack weight', 'Rifles', 'Ammo', 'Trail cameras'],
+    links: {
+      live: 'https://vault.paintbrushoutdoors.com/',
+    },
+    images: [],
+    summary:
+      'Gear Vault is a personal catalog for the gear you pack. Record a name, a category, a weight, and how many you own, then build a pack list and see the total. Rifles, ammo, and trail cameras already on your Paintbrush account show up beside that list.',
+    highlights: [
+      'A catalog of named gear with category, weight in grams, and quantity.',
+      'Pack lists for a backpack, a day, base camp, or a stock pile, with a known total weight.',
+      'Rifles, ammo, and trail cameras from the same Paintbrush account, listed with the rest of the gear.',
+    ],
+    why:
+      'Pack lists live in notes apps and the rifles live in another login. Gear Vault keeps the weight list and the gear already on the account in one place.',
+    metrics: [
+      { label: 'Catalog', value: 'Name, weight, count' },
+      { label: 'Packs', value: 'Known total' },
+    ],
+  },
+  {
+    id: 'hunt-planning',
+    name: 'Hunt Planning',
+    tagline: 'Several hunts. One shared plan for the people going.',
+    cta: 'Open Hunt Planning',
+    category: 'Hunt planning',
+    status: 'Beta',
+    accent: '#7c5cff',
+    featured: true,
+    stack: ['Vue', 'Paintbrush ID', 'Azure Static Web Apps'],
+    tags: ['Shared plans', 'Calendar', 'Playbook', 'Logistics'],
+    links: {
+      live: 'https://planning.paintbrushoutdoors.com/',
+    },
+    images: [],
+    summary:
+      'Hunt Planning keeps each hunt private to the people on it. A plan holds the dates, who is invited, the vehicle, a recorded cost split, supplies, how everyone gets there, where they sleep, and the plays the party will run.',
+    highlights: [
+      'Separate plans for separate hunts, shared with one invited person at a time.',
+      'A calendar of dates and commitments, with overlaps called out.',
+      'Drive time, pickup, hike-in, sleeping spots, meals, and a written playbook with a group fitness limit.',
+    ],
+    why:
+      'A season is more than one hunt, and the details are scattered across texts. Hunt Planning puts the people, the dates, and the trip on one plan.',
+    metrics: [
+      { label: 'Plans', value: 'Private to the party' },
+      { label: 'Calendar', value: 'Dates + conflicts' },
+    ],
+  },
+  {
     id: 'midwestgundealer',
     name: 'Midwest Gun Deals',
     tagline: 'A full marketplace, compliance engine, and ad platform in one app.',
