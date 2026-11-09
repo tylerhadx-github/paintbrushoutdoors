@@ -107,6 +107,12 @@
       </a>
 
       <p class="contact__foot">Paintbrush Outdoors - building real products, indoors and out.</p>
+      <nav class="contact__legal" aria-label="Legal pages">
+        <router-link to="/privacy">Privacy</router-link>
+        <router-link to="/terms">Terms</router-link>
+        <router-link to="/support">Support</router-link>
+        <router-link to="/data-deletion">Data deletion</router-link>
+      </nav>
     </div>
   </section>
 </template>
@@ -533,6 +539,23 @@
     margin-top: 2rem;
     font-size: 0.85rem;
     color: #6f6f7e;
+  }
+
+  .contact__legal {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 1.25rem;
+    margin-top: 0.85rem;
+  }
+
+  .contact__legal a {
+    color: #9d85ff;
+    text-decoration: none;
+    font-size: 0.85rem;
+  }
+
+  .contact__legal a:hover {
+    text-decoration: underline;
   }
 
   @media (max-width: 560px) {

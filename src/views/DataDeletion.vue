@@ -17,33 +17,82 @@
         <p>
           We will remove or anonymize data associated with your Facebook account as described in our
           <router-link to="/privacy">Privacy Policy</router-link>.
-          Processing may take up to 30 days. If you have questions, use the
-          <router-link to="/#contact">contact form</router-link>.
+          Processing may take up to 30 days. This is not an instant in-app wipe. If you have
+          questions, use
+          <router-link to="/support">Support</router-link>
+          or the
+          <a href="/#contact" @click="goToContact">contact form</a>.
         </p>
       </section>
 
       <section v-else class="legal__section">
-        <h2>Facebook data deletion</h2>
+        <h2>How deletion works today</h2>
         <p>
-          If you connected a Paintbrush Outdoors app with Facebook Login and want your data removed,
-          you can delete the app from your Facebook settings or use Meta’s data deletion callback.
-          After Meta notifies us, you will be redirected here with a confirmation code.
+          Paintbrush Outdoors does not currently offer a self-serve “delete everything instantly”
+          control inside every app for every sign-in provider. Deletion is request-based. We
+          process requests in a reasonable time (Facebook callback confirmations may take up to
+          30 days). Content stored only on your device may remain until you clear app data or
+          uninstall.
+        </p>
+        <p>
+          See the
+          <router-link to="/privacy">Privacy Policy</router-link>
+          for what we collect, and
+          <router-link to="/support">Support</router-link>
+          for how to reach us with bug or account questions.
         </p>
       </section>
 
       <section class="legal__section">
-        <h2>Other sign-in providers</h2>
+        <h2>Facebook</h2>
         <p>
-          To delete data for Google or GitHub sign-in, contact us via the
-          <router-link to="/#contact">contact form</router-link>
-          and include the email or username you use to sign in, plus which app(s) you use
-          (for example PHA, FishSD, Trail Eye, or Nock Score).
+          If you connected a Paintbrush Outdoors app with Facebook Login and want your data
+          removed, you can delete the app from your Facebook settings or use Meta’s data
+          deletion callback. After Meta notifies us, you will be redirected here with a
+          confirmation code (<code>?code=</code> in the URL). Keep that code for your records.
         </p>
       </section>
 
-      <nav class="legal__footer">
+      <section class="legal__section">
+        <h2>Google, GitHub, and Microsoft</h2>
+        <p>
+          For Google, GitHub, or Microsoft sign-in (Microsoft is used on some mobile clients),
+          contact us via the
+          <a href="/#contact" @click="goToContact">contact form</a>
+          or
+          <router-link to="/support">Support</router-link>.
+          Include:
+        </p>
+        <ul>
+          <li>The email or username you use to sign in</li>
+          <li>Which provider (Google, GitHub, or Microsoft)</li>
+          <li>Which app(s) you use (for example Public Hunting Atlas, FishSD, Trail Eye, or Nock Score)</li>
+        </ul>
+        <p>
+          We will remove or anonymize account-associated data as described in the
+          <router-link to="/privacy">Privacy Policy</router-link>.
+          There is no automated instant wipe for these providers today.
+        </p>
+      </section>
+
+      <section class="legal__section">
+        <h2>All providers</h2>
+        <p>
+          Regardless of provider, you may always start a deletion or privacy request through
+          <router-link to="/support">Support</router-link>
+          /
+          <a href="/#contact" @click="goToContact">contact</a>.
+          We may retain limited records where required for legal, security, or operational
+          reasons, as noted in the Privacy Policy.
+        </p>
+      </section>
+
+      <nav class="legal__footer" aria-label="Legal pages">
         <router-link to="/">Home</router-link>
-        <router-link to="/privacy">Privacy Policy</router-link>
+        <router-link to="/privacy">Privacy</router-link>
+        <router-link to="/terms">Terms</router-link>
+        <router-link to="/support">Support</router-link>
+        <router-link to="/data-deletion">Data deletion</router-link>
       </nav>
     </article>
   </div>
@@ -52,14 +101,27 @@
 <script setup>
   import { computed } from 'vue'
   import { useRoute } from 'vue-router'
+  import { useHashScroll } from '@/composables/useHashScroll'
+  import { usePageMeta } from '@/composables/usePageMeta'
 
   const route = useRoute()
-  const lastUpdated = 'June 30, 2026'
+  const lastUpdated = 'November 9, 2026'
+  const { goToHash } = useHashScroll()
+
+  function goToContact (e) {
+    return goToHash(e, '#contact')
+  }
 
   const confirmationCode = computed(() => {
     const code = route.query.code
     return typeof code === 'string' && code.length > 0 ? code : null
   })
+
+  usePageMeta(computed(() => ({
+    title: 'Data Deletion | Paintbrush Outdoors',
+    description: 'How to request deletion of Paintbrush Outdoors account data for Facebook, Google, GitHub, and Microsoft sign-in. Facebook confirmation codes appear on this page.',
+    path: '/data-deletion',
+  })))
 </script>
 
 <style scoped>
@@ -116,9 +178,13 @@
     margin: 0 0 0.65rem;
   }
 
-  .legal__section p {
+  .legal__section p,
+  .legal__section li {
     line-height: 1.65;
     color: #b8b8c8;
+  }
+
+  .legal__section p {
     margin: 0 0 0.75rem;
   }
 
@@ -126,12 +192,27 @@
     margin-bottom: 0;
   }
 
-  .legal__section a {
+  .legal__section ul {
+    padding-left: 1.25rem;
+    margin: 0.5rem 0 0.75rem;
+  }
+
+  .legal__section li + li {
+    margin-top: 0.5rem;
+  }
+
+  .legal__section a,
+  .legal__section code {
     color: #9d85ff;
+  }
+
+  .legal__section code {
+    font-size: 0.9em;
   }
 
   .legal__footer {
     display: flex;
+    flex-wrap: wrap;
     gap: 1.25rem;
     margin-top: 2.5rem;
     padding-top: 1.5rem;

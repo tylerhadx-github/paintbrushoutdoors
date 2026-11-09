@@ -27,12 +27,11 @@
 
 <script setup>
   import { onMounted, onBeforeUnmount, ref } from 'vue'
-  import { useRoute, useRouter } from 'vue-router'
   import logo from '@/assets/brand-logo.png'
+  import { useHashScroll } from '@/composables/useHashScroll'
 
-  const route = useRoute()
-  const router = useRouter()
   const scrolled = ref(false)
+  const { goToHash } = useHashScroll()
 
   const links = [
     { id: 'work', label: 'Work' },
@@ -42,26 +41,12 @@
     { id: 'contact', label: 'Contact' },
   ]
 
-  const reduced =
-    typeof window !== 'undefined' &&
-    window.matchMedia &&
-    window.matchMedia('(prefers-reduced-motion: reduce)').matches
-
   function onScroll () {
     scrolled.value = window.scrollY > 40
   }
 
-  async function go (e, sel) {
-    e.preventDefault()
-    if (route.path !== '/') {
-      await router.push('/')
-    }
-    requestAnimationFrame(() => {
-      const target = document.querySelector(sel)
-      if (target) {
-        target.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' })
-      }
-    })
+  function go (e, sel) {
+    return goToHash(e, sel)
   }
 
   onMounted(() => {
